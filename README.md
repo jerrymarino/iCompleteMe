@@ -50,7 +50,7 @@ Background
 [iCompleteMe][] is based on [YouCompleteMe][]. After spending a over a year
 attempting to implement Swift support for [YouCompleteMe][], I found that it
 wasn't possible to achieve ideal behavior under the conventions of [YCM][];
-[ICM][] spawned.
+[iCM][] spawned.
 
 Instead of shoehornning Swift into completion behaviors that work OK for other
 languges, [iCompleteMe][] implements behaviors which are ideal for Swift.
@@ -85,9 +85,9 @@ local binary folder (for example `/usr/local/bin/mvim`) and then symlink it:
 
 Install iCompleteMe with [Vundle][].
 
-**Remember:** ICM is a plugin with a compiled component. If you **update** ICM
+**Remember:** iCM is a plugin with a compiled component. If you **update** iCM
 using Vundle and the ycm_core library APIs have changed (happens
-rarely), ICM will notify you to recompile it. You should then rerun the install
+rarely), iCM will notify you to recompile it. You should then rerun the install
 process.
 
 **NOTE:** If you want C-family completion, you MUST have the latest Xcode
@@ -106,16 +106,16 @@ Simply run:
     cd ~/.vim/bundle/iCompleteMe
     ./install.py
 
-That's it. You're done. Refer to the _User Guide_ section on how to use ICM.
+That's it. You're done. Refer to the _User Guide_ section on how to use iCM.
 Don't forget that if you want the C-family semantic completion engine to work,
-you will need to provide the compilation flags for your project to ICM. It's all
+you will need to provide the compilation flags for your project to iCM. It's all
 in the User Guide.
 
-ICM comes with sane defaults for its options, but you still may want to take a
+iCM comes with sane defaults for its options, but you still may want to take a
 look at what's available for configuration. There are a few interesting options
 that are conservatively turned off by default that you may want to turn on.
 
-**ICM Relies on [SwiftySwiftVim][] for language support. By default, it links
+**iCM Relies on [SwiftySwiftVim][] for language support. By default, it links
 libraries from Xcode ( using whatever Xcode `xcode-select` points at ). If
 you'd like to build from source, checkout [SwiftySwiftVim][]'s build system for
 more info**
@@ -136,9 +136,9 @@ installed by running `vim --version`. If the version is too old, you may need to
 
 Install iCompleteMe with [Vundle][].
 
-**Remember:** ICM is a plugin with a compiled component. If you **update** ICM
+**Remember:** iCM is a plugin with a compiled component. If you **update** iCM
 using Vundle and the ycm_core library APIs have changed (happens
-rarely), ICM will notify you to recompile it. You should then rerun the install
+rarely), iCM will notify you to recompile it. You should then rerun the install
 process.
 
 Install development tools and CMake: 
@@ -153,12 +153,12 @@ Make sure you have Python headers installed:
     ./install.py
 
 
-That's it. You're done. Refer to the _User Guide_ section on how to use ICM.
+That's it. You're done. Refer to the _User Guide_ section on how to use iCM.
 Don't forget that if you want the C-family semantic completion engine to work,
-you will need to provide the compilation flags for your project to ICM. It's all
+you will need to provide the compilation flags for your project to iCM. It's all
 in the User Guide.
 
-ICM comes with sane defaults for its options, but you still may want to take a
+iCM comes with sane defaults for its options, but you still may want to take a
 look at what's available for configuration. There are a few interesting options
 that are conservatively turned off by default that you may want to turn on.
 
@@ -178,9 +178,9 @@ Vim from source][vim-build] (don't worry, it's easy).
 
 Install iCompleteMe with [Vundle][].
 
-**Remember:** ICM is a plugin with a compiled component. If you **update** ICM
+**Remember:** iCM is a plugin with a compiled component. If you **update** iCM
 using Vundle and the ycm_core library APIs have changed (happens
-rarely), ICM will notify you to recompile it. You should then rerun the install
+rarely), iCM will notify you to recompile it. You should then rerun the install
 process.
 
 Install development tools and CMake:
@@ -195,12 +195,12 @@ Make sure you have Python headers installed:
     ./install.py
 
 
-That's it. You're done. Refer to the _User Guide_ section on how to use ICM.
+That's it. You're done. Refer to the _User Guide_ section on how to use iCM.
 Don't forget that if you want the C-family semantic completion engine to work,
-you will need to provide the compilation flags for your project to ICM. It's all
+you will need to provide the compilation flags for your project to iCM. It's all
 in the User Guide.
 
-ICM comes with sane defaults for its options, but you still may want to take a
+iCM comes with sane defaults for its options, but you still may want to take a
 look at what's available for configuration. There are a few interesting options
 that are conservatively turned off by default that you may want to turn on.
 
@@ -226,9 +226,9 @@ Python 2 and Python 3 support][vim-win-download] are available.
 
 Install iCompleteMe with [Vundle][].
 
-**Remember:** ICM is a plugin with a compiled component. If you **update** ICM
+**Remember:** iCM is a plugin with a compiled component. If you **update** iCM
 using Vundle and the ycm_core library APIs have changed (happens
-rarely), ICM will notify you to recompile it. You should then rerun the install
+rarely), iCM will notify you to recompile it. You should then rerun the install
 process.
 
 Download and install the following software:
@@ -241,18 +241,18 @@ variable.
 - [Visual Studio][visual-studio-download]. Download the community edition.
 During setup, select _Desktop development with C++_ in _Workloads_.
 
-Compiling ICM **with** semantic support for C-family languages:
+Compiling iCM **with** semantic support for C-family languages:
 
     cd %USERPROFILE%/vimfiles/bundle/iCompleteMe
     install.py --clang-completer
 
 You can specify the Microsoft Visual C++ (MSVC) version using the `--msvc`
-option. ICM officially supports MSVC 12 (Visual Studio 2013), 14 (2015), and 15
+option. iCM officially supports MSVC 12 (Visual Studio 2013), 14 (2015), and 15
 (2017).
 
-That's it. You're done. Refer to the _User Guide_ section on how to use ICM.
+That's it. You're done. Refer to the _User Guide_ section on how to use iCM.
 
-ICM comes with sane defaults for its options, but you still may want to take a
+iCM comes with sane defaults for its options, but you still may want to take a
 look at what's available for configuration. There are a few interesting options
 that are conservatively turned off by default that you may want to turn on.
 
@@ -265,7 +265,7 @@ iCompleteMe, however they may not work for everyone. If the following
 instructions don't work for you, check out the [full installation
 guide](#full-installation-guide).
 
-**NOTE:** OpenBSD / FreeBSD are not officially supported platforms by ICM.
+**NOTE:** OpenBSD / FreeBSD are not officially supported platforms by iCM.
 
 Make sure you have Vim 7.4.1578 with Python 2 or Python 3 support.
 
@@ -279,9 +279,9 @@ FreeBSD 10.x comes with clang compiler but not the libraries needed to install.
 
 Install iCompleteMe with [Vundle][].
 
-**Remember:** ICM is a plugin with a compiled component. If you **update** ICM
+**Remember:** iCM is a plugin with a compiled component. If you **update** iCM
 using Vundle and the ycm_core library APIs have changed (happens
-rarely), ICM will notify you to recompile it. You should then rerun the install
+rarely), iCM will notify you to recompile it. You should then rerun the install
 process.
 
 Install dependencies and CMake: `sudo pkg_add llvm boost cmake`
@@ -289,15 +289,15 @@ Install dependencies and CMake: `sudo pkg_add llvm boost cmake`
     cd ~/.vim/bundle/iCompleteMe
     ./install.py 
 
-That's it. You're done. Refer to the _User Guide_ section on how to use ICM.
+That's it. You're done. Refer to the _User Guide_ section on how to use iCM.
 
-ICM comes with sane defaults for its options, but you still may want to take a
+iCM comes with sane defaults for its options, but you still may want to take a
 look at what's available for configuration. There are a few interesting options
 that are conservatively turned off by default that you may want to turn on.
 
 ### Full Installation Guide
 
-These are the steps necessary to get ICM working on a Unix OS and on Windows.
+These are the steps necessary to get iCM working on a Unix OS and on Windows.
 
 **Note to Windows users:** we assume that you are running the `cmd.exe` command
 prompt and that the needed executables are in the PATH environment variable. Do
@@ -307,9 +307,9 @@ the right Vim home directory. It should be `vimfiles` by default instead of
 
 See the _FAQ_ if you have any issues.
 
-**Remember:** ICM is a plugin with a compiled component. If you **update** ICM
+**Remember:** iCM is a plugin with a compiled component. If you **update** iCM
 using Vundle and the ycm_core library APIs have changed (happens
-rarely), ICM will notify you to recompile it. You should then rerun the install
+rarely), iCM will notify you to recompile it. You should then rerun the install
 process.
 
 **Please follow the instructions carefully. Read EVERY WORD.**
@@ -331,19 +331,19 @@ process.
     it's 0, then get a version of Vim with Python support.
 
     On Windows, check also if your Vim architecture is 32 or 64-bit. This is
-    critical because it must match the Python and the ICM libraries
+    critical because it must match the Python and the iCM libraries
     architectures. We recommend using a 64-bit Vim.
 
-2.  **Install ICM** with [Vundle][] (or [Pathogen][], but Vundle is a better
+2.  **Install iCM** with [Vundle][] (or [Pathogen][], but Vundle is a better
     idea). With Vundle, this would mean adding a `Plugin
     'Valloric/iCompleteMe'` line to your [vimrc][].
 
-    If you don't install ICM with Vundle, make sure you have run
-    `git submodule update --init --recursive` after checking out the ICM
-    repository (Vundle will do this for you) to fetch ICM's dependencies.
+    If you don't install iCM with Vundle, make sure you have run
+    `git submodule update --init --recursive` after checking out the iCM
+    repository (Vundle will do this for you) to fetch iCM's dependencies.
 
-4.  **Compile the `ycm_core` library** that ICM needs. This library
-    is the C++ engine that ICM uses to get fast completions.
+4.  **Compile the `ycm_core` library** that iCM needs. This library
+    is the C++ engine that iCM uses to get fast completions.
 
     You will need to have `cmake` installed in order to generate the required
     makefiles. Linux users can install cmake with their package manager (`sudo
@@ -357,13 +357,13 @@ process.
 
     On Windows, you need to download and install [Python 2 or
     Python 3][python-win-download]. Pick the version corresponding to your Vim
-    architecture. You will also need Microsoft Visual C++ (MSVC) to build ICM.
+    architecture. You will also need Microsoft Visual C++ (MSVC) to build iCM.
     You can obtain it by installing [Visual Studio][visual-studio-download].
     MSVC 12 (Visual Studio 2013), 14 (2015), and 15 (2017) are officially
     supported.
 
-    Here we'll assume you installed ICM with Vundle. That means that the
-    top-level ICM directory is in `~/.vim/bundle/iCompleteMe`.
+    Here we'll assume you installed iCM with Vundle. That means that the
+    top-level iCM directory is in `~/.vim/bundle/iCompleteMe`.
 
     We'll create a new folder where build files will be placed. Run the
     following:
@@ -427,11 +427,11 @@ process.
 
     Running the `cmake` command will also place the `libclang.[so|dylib|dll]` in
     the `iCompleteMe/third_party/ycmd` folder for you if you compiled with
-    clang support (it needs to be there for ICM to work).
+    clang support (it needs to be there for iCM to work).
 
-That's it. You're done. Refer to the _User Guide_ section on how to use ICM.
+That's it. You're done. Refer to the _User Guide_ section on how to use iCM.
 
-ICM comes with sane defaults for its options, but you still may want to take a
+iCM comes with sane defaults for its options, but you still may want to take a
 look at what's available for configuration. There are a few interesting options
 that are conservatively turned off by default that you may want to turn on.
 
@@ -449,7 +449,7 @@ User Guide
 
 ### General Usage
 
-- If the offered completions are too broad, keep typing characters; ICM will
+- If the offered completions are too broad, keep typing characters; iCM will
   continue refining the offered completions based on your input.
 - Filtering is "smart-case" sensitive; if you are typing only lowercase letters,
   then it's case-insensitive. If your input contains uppercase letters, then the
@@ -462,7 +462,7 @@ User Guide
   Shift-TAB binding will not work because the console will not pass it to Vim.
   You can remap the keys; see the _[Options][]_ section below.
 
-Knowing a little bit about how ICM works internally will prevent confusion. ICM
+Knowing a little bit about how iCM works internally will prevent confusion. iCM
 has several completion engines: an identifier-based completer that collects all
 of the identifiers in the current file and other files you visit (and your tags
 files) and searches them when you type (identifiers are put into per-filetype
@@ -471,9 +471,9 @@ groups).
 
 ### Client-Server Architecture
 
-ICM has a client-server architecture; the Vim part of ICM is only a thin client
+iCM has a client-server architecture; the Vim part of iCM is only a thin client
 that talks to the [ycmd HTTP+JSON server][ycmd] that has the vast majority of
-ICM logic and functionality. The server is started and stopped automatically as
+iCM logic and functionality. The server is started and stopped automatically as
 you start and stop Vim.
 
 ### Completion String Ranking
@@ -515,9 +515,9 @@ For Xcode *Project* users, [XcodeCompilationDatabase
 
 ### Diagnostic Display
 
-ICM will display diagnostic notifications for C-family and C# languages if you
-compiled ICM with Clang and Omnisharp support, respectively. Diagnostics will
-also be displayed for TypeScript. Since ICM continuously recompiles your file as
+iCM will display diagnostic notifications for C-family and C# languages if you
+compiled iCM with Clang and Omnisharp support, respectively. Diagnostics will
+also be displayed for TypeScript. Since iCM continuously recompiles your file as
 you type, you'll get notified of errors and warnings in your file as fast as
 possible.
 
@@ -537,19 +537,19 @@ come in, that _will not work_. You need to press some key for the GUI to update.
 Having to press a key to get the updates is unfortunate, but cannot be changed
 due to the way Vim internals operate; there is no way that a background task can
 update Vim's GUI after it has finished running.  You _have to_ press a key. This
-will make ICM check for any pending diagnostics updates.
+will make iCM check for any pending diagnostics updates.
 
 You _can_ force a full, blocking compilation cycle with the
 `:YcmForceCompileAndDiagnostics` command (you may want to map that command to a
 key; try putting `nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>` in your
-vimrc). Calling this command will force ICM to immediately recompile your file
+vimrc). Calling this command will force iCM to immediately recompile your file
 and display any new diagnostics it encounters. Do note that recompilation with
 this command may take a while and during this time the Vim GUI _will_ be
 blocked.
 
-ICM will display a short diagnostic message when you move your cursor to the
+iCM will display a short diagnostic message when you move your cursor to the
 line with the error. You can get a detailed diagnostic message with the
-`<leader>d` key mapping (can be changed in the options) ICM provides when your
+`<leader>d` key mapping (can be changed in the options) iCM provides when your
 cursor is on the line with the diagnostic.
 
 You can also see the full diagnostic message for all the diagnostics in the
@@ -563,7 +563,7 @@ yours truly.
 
 #### Diagnostic Highlighting Groups
 
-You can change the styling for the highlighting groups ICM uses. For the signs
+You can change the styling for the highlighting groups iCM uses. For the signs
 in the Vim gutter, the relevant groups are:
 
 - `YcmErrorSign`, which falls back to group `SyntasticErrorSign` and then
@@ -602,7 +602,7 @@ restart it with this command.
 
 ### The `:YcmForceCompileAndDiagnostics` command
 
-Calling this command will force ICM to immediately recompile your file
+Calling this command will force iCM to immediately recompile your file
 and display any new diagnostics it encounters. Do note that recompilation with
 this command may take a while and during this time the Vim GUI _will_ be
 blocked.
@@ -669,7 +669,7 @@ flags.
 #### The `RestartServer` subcommand
 
 Restarts the semantic-engine-as-localhost-server for those semantic engines that
-work as separate servers that ICM talks to.
+work as separate servers that iCM talks to.
 
 An additional optional argument may be supplied for Python, specifying the
 python binary to use to restart the Python semantic engine.
@@ -682,12 +682,12 @@ Supported in filetypes: `cs, go, javascript, python, rust, typescript`
 
 #### The `ClearCompilationFlagCache` subcommand
 
-ICM caches the flags it gets from the `FlagsForFile` function in your
+iCM caches the flags it gets from the `FlagsForFile` function in your
 `ycm_extra_conf.py` file if you return them with the `do_cache` parameter set to
 `True`. The cache is in memory and is never invalidated (unless you restart Vim
 of course).
 
-This command clears that cache entirely. ICM will then re-query your
+This command clears that cache entirely. iCM will then re-query your
 `FlagsForFile` function as needed in the future.
 
 Supported in filetypes: `c, cpp, objc, objcpp`
@@ -705,7 +705,7 @@ Functions
 
 ### The `youcompleteme#GetErrorCount` function
 
-Get the number of ICM Diagnostic errors. If no errors are present, this function
+Get the number of iCM Diagnostic errors. If no errors are present, this function
 returns 0.
 
 For example:
@@ -714,13 +714,13 @@ For example:
 ```
 
 Both this function and `youcompleteme#GetWarningCount` can be useful when
-integrating ICM with other Vim plugins. For example, a [lightline][] user could
+integrating iCM with other Vim plugins. For example, a [lightline][] user could
 add a diagnostics section to their statusline which would display the number of
 errors and warnings.
 
 ### The `youcompleteme#GetWarningCount` function
 
-Get the number of ICM Diagnostic warnings. If no warnings are present, this
+Get the number of iCM Diagnostic warnings. If no warnings are present, this
 function returns 0.
 
 For example:
@@ -733,7 +733,7 @@ Autocommands
 
 ### The `YcmLocationOpened` autocommand
 
-This `User` autocommand is fired when ICM opens the location list window in
+This `User` autocommand is fired when iCM opens the location list window in
 response to the `YcmDiags` command. By default, the location list window is
 opened to full width at the bottom of the screen and its height is set to fit
 all entries. This behavior can be overridden by using the `YcmLocationOpened`
@@ -754,7 +754,7 @@ autocmd User YcmLocationOpened call s:CustomizeYcmLocationWindow()
 
 ### The `YcmQuickFixOpened` autocommand
 
-This `User` autocommand is fired when ICM opens the quickfix window in response
+This `User` autocommand is fired when iCM opens the quickfix window in response
 to the `GoTo*` and `RefactorRename` subcommands. By default, the quickfix window
 is opened to full width at the bottom of the screen and its height is set to fit
 all entries. This behavior can be overridden by using the `YcmQuickFixOpened`
@@ -821,7 +821,7 @@ let g:ycm_min_num_identifier_candidate_chars = 0
 
 ### The `g:ycm_auto_trigger` option
 
-When set to `0`, this option turns off ICM's identifier completer (the
+When set to `0`, this option turns off iCM's identifier completer (the
 as-you-type popup) _and_ the semantic triggers (the popup you'd get after typing
 `.` or `->` in say C++). You can still force semantic completion with the
 `<C-Space>` shortcut.
@@ -838,7 +838,7 @@ let g:ycm_auto_trigger = 1
 
 ### The `g:ycm_filetype_whitelist` option
 
-This option controls for which Vim filetypes (see `:h filetype`) should ICM be
+This option controls for which Vim filetypes (see `:h filetype`) should iCM be
 turned on. The option value should be a Vim dictionary with keys being filetype
 strings (like `python`, `cpp` etc) and values being unimportant (the dictionary
 is used like a hash set, meaning that only the keys matter).
@@ -846,18 +846,18 @@ is used like a hash set, meaning that only the keys matter).
 The `*` key is special and matches all filetypes. By default, the whitelist
 contains only this `*` key.
 
-ICM also has a `g:ycm_filetype_blacklist` option that lists filetypes for which
-ICM shouldn't be turned on. ICM will work only in filetypes that both the
+iCM also has a `g:ycm_filetype_blacklist` option that lists filetypes for which
+iCM shouldn't be turned on. iCM will work only in filetypes that both the
 whitelist and the blacklist allow (the blacklist "allows" a filetype by _not_
 having it as a key).
 
-For example, let's assume you want ICM to work in files with the `cpp` filetype.
+For example, let's assume you want iCM to work in files with the `cpp` filetype.
 The filetype should then be present in the whitelist either directly (`cpp` key
 in the whitelist) or indirectly through the special `*` key. It should _not_ be
 present in the blacklist.
 
 Filetypes that are blocked by the either of the lists will be completely ignored
-by ICM, meaning that neither the identifier-based completion engine nor the
+by iCM, meaning that neither the identifier-based completion engine nor the
 semantic engine will operate in them.
 
 You can get the filetype of the current file in Vim with `:set ft?`.
@@ -870,7 +870,7 @@ let g:ycm_filetype_whitelist = { '*': 1 }
 
 ### The `g:ycm_filetype_blacklist` option
 
-This option controls for which Vim filetypes (see `:h filetype`) should ICM be
+This option controls for which Vim filetypes (see `:h filetype`) should iCM be
 turned off. The option value should be a Vim dictionary with keys being filetype
 strings (like `python`, `cpp` etc) and values being unimportant (the dictionary
 is used like a hash set, meaning that only the keys matter).
@@ -896,11 +896,11 @@ let g:ycm_filetype_blacklist = {
 
 ### The `g:ycm_filetype_specific_completion_to_disable` option
 
-This option controls for which Vim filetypes (see `:h filetype`) should the ICM
+This option controls for which Vim filetypes (see `:h filetype`) should the iCM
 semantic completion engine be turned off. The option value should be a Vim
 dictionary with keys being filetype strings (like `python`, `cpp` etc) and
 values being unimportant (the dictionary is used like a hash set, meaning that
-only the keys matter). The listed filetypes will be ignored by the ICM semantic
+only the keys matter). The listed filetypes will be ignored by the iCM semantic
 completion engine, but the identifier-based completion engine will still trigger
 in files of those filetypes.
 
@@ -920,20 +920,20 @@ let g:ycm_filetype_specific_completion_to_disable = {
 
 ### The `g:ycm_show_diagnostics_ui` option
 
-When set, this option turns on ICM's diagnostic display features. See the
+When set, this option turns on iCM's diagnostic display features. See the
 _Diagnostic display_ section in the _User Manual_ for more details.
 
 Specific parts of the diagnostics UI (like the gutter signs, text highlighting,
 diagnostic echo and auto location list population) can be individually turned on
 or off. See the other options below for details.
 
-Note that ICM's diagnostics UI is only supported for C-family languages.
+Note that iCM's diagnostics UI is only supported for C-family languages.
 
-When set, this option also makes ICM remove all Syntastic checkers set for the
-`c`, `cpp`, `objc` and `objcpp` filetypes since this would conflict with ICM's
+When set, this option also makes iCM remove all Syntastic checkers set for the
+`c`, `cpp`, `objc` and `objcpp` filetypes since this would conflict with iCM's
 own diagnostics UI.
 
-If you're using ICM's identifier completer in C-family languages but cannot use
+If you're using iCM's identifier completer in C-family languages but cannot use
 the clang-based semantic completer for those languages _and_ want to use the GCC
 Syntastic checkers, unset this option.
 
@@ -945,11 +945,11 @@ let g:ycm_show_diagnostics_ui = 1
 
 ### The `g:ycm_error_symbol` option
 
-ICM will use the value of this option as the symbol for errors in the Vim
+iCM will use the value of this option as the symbol for errors in the Vim
 gutter.
 
 This option is part of the Syntastic compatibility layer; if the option is not
-set, ICM will fall back to the value of the `g:syntastic_error_symbol` option
+set, iCM will fall back to the value of the `g:syntastic_error_symbol` option
 before using this option's default.
 
 Default: `>>`
@@ -960,11 +960,11 @@ let g:ycm_error_symbol = '>>'
 
 ### The `g:ycm_warning_symbol` option
 
-ICM will use the value of this option as the symbol for warnings in the Vim
+iCM will use the value of this option as the symbol for warnings in the Vim
 gutter.
 
 This option is part of the Syntastic compatibility layer; if the option is not
-set, ICM will fall back to the value of the `g:syntastic_warning_symbol` option
+set, iCM will fall back to the value of the `g:syntastic_warning_symbol` option
 before using this option's default.
 
 Default: `>>`
@@ -975,12 +975,12 @@ let g:ycm_warning_symbol = '>>'
 
 ### The `g:ycm_enable_diagnostic_signs` option
 
-When this option is set, ICM will put icons in Vim's gutter on lines that have a
+When this option is set, iCM will put icons in Vim's gutter on lines that have a
 diagnostic set. Turning this off will also turn off the `YcmErrorLine` and
 `YcmWarningLine` highlighting.
 
 This option is part of the Syntastic compatibility layer; if the option is not
-set, ICM will fall back to the value of the `g:syntastic_enable_signs` option
+set, iCM will fall back to the value of the `g:syntastic_enable_signs` option
 before using this option's default.
 
 Default: `1`
@@ -991,11 +991,11 @@ let g:ycm_enable_diagnostic_signs = 1
 
 ### The `g:ycm_enable_diagnostic_highlighting` option
 
-When this option is set, ICM will highlight regions of text that are related to
+When this option is set, iCM will highlight regions of text that are related to
 the diagnostic that is present on a line, if any.
 
 This option is part of the Syntastic compatibility layer; if the option is not
-set, ICM will fall back to the value of the `g:syntastic_enable_highlighting`
+set, iCM will fall back to the value of the `g:syntastic_enable_highlighting`
 option before using this option's default.
 
 Default: `1`
@@ -1006,12 +1006,12 @@ let g:ycm_enable_diagnostic_highlighting = 1
 
 ### The `g:ycm_echo_current_diagnostic` option
 
-When this option is set, ICM will echo the text of the diagnostic present on the
+When this option is set, iCM will echo the text of the diagnostic present on the
 current line when you move your cursor to that line. If a `FixIt` is available
 for the current diagnostic, then ` (FixIt)` is appended.
 
 This option is part of the Syntastic compatibility layer; if the option is not
-set, ICM will fall back to the value of the `g:syntastic_echo_current_error`
+set, iCM will fall back to the value of the `g:syntastic_echo_current_error`
 option before using this option's default.
 
 Default: `1`
@@ -1022,14 +1022,14 @@ let g:ycm_echo_current_diagnostic = 1
 
 ### The `g:ycm_filter_diagnostics` option
 
-This option controls which diagnostics will be rendered by ICM. This option
+This option controls which diagnostics will be rendered by iCM. This option
 holds a dictionary of key-values, where the keys are Vim's filetype strings
 delimited by commas and values are dictionaries describing the filter.
 
 A filter is a dictionary of key-values, where the keys are the type of filter,
 and the value is a list of arguments to that filter. In the case of just a
 single item in the list, you may omit the brackets and just provide the argument
-directly. If any filter matches a diagnostic, it will be dropped and ICM will 
+directly. If any filter matches a diagnostic, it will be dropped and iCM will 
 not render it.
 
 The following filter types are supported:
@@ -1055,14 +1055,14 @@ let g:ycm_filter_diagnostics = {
 
 ### The `g:ycm_always_populate_location_list` option
 
-When this option is set, ICM will populate the location list automatically every
+When this option is set, iCM will populate the location list automatically every
 time it gets new diagnostic data. This option is off by default so as not to
 interfere with other data you might have placed in the location list.
 
 See `:help location-list` in Vim to learn more about the location list.
 
 This option is part of the Syntastic compatibility layer; if the option is not
-set, ICM will fall back to the value of the
+set, iCM will fall back to the value of the
 `g:syntastic_always_populate_loc_list` option before using this option's
 default.
 
@@ -1087,7 +1087,7 @@ let g:ycm_open_loclist_on_ycm_diags = 1
 
 ### The `g:ycm_complete_in_comments` option
 
-When this option is set to `1`, ICM will show the completion menu even when
+When this option is set to `1`, iCM will show the completion menu even when
 typing inside comments.
 
 Default: `0`
@@ -1098,7 +1098,7 @@ let g:ycm_complete_in_comments = 0
 
 ### The `g:ycm_complete_in_strings` option
 
-When this option is set to `1`, ICM will show the completion menu even when
+When this option is set to `1`, iCM will show the completion menu even when
 typing inside strings.
 
 Note that this is turned on by default so that you can use the filename
@@ -1115,7 +1115,7 @@ let g:ycm_complete_in_strings = 1
 
 ### The `g:ycm_collect_identifiers_from_comments_and_strings` option
 
-When this option is set to `1`, ICM's identifier completer will also collect
+When this option is set to `1`, iCM's identifier completer will also collect
 identifiers from strings and comments. Otherwise, the text in comments and
 strings will be ignored.
 
@@ -1127,19 +1127,19 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 0
 
 ### The `g:ycm_collect_identifiers_from_tags_files` option
 
-When this option is set to `1`, ICM's identifier completer will also collect
+When this option is set to `1`, iCM's identifier completer will also collect
 identifiers from tags files. The list of tags files to examine is retrieved from
 the `tagfiles()` Vim function which examines the `tags` Vim option. See `:h
 'tags'` for details.
 
-ICM will re-index your tags files if it detects that they have been modified.
+iCM will re-index your tags files if it detects that they have been modified.
 
 The only supported tag format is the [Exuberant Ctags format][ctags-format]. The
 format from "plain" ctags is NOT supported. Ctags needs to be called with the
-`--fields=+l` option (that's a lowercase `L`, not a one) because ICM needs the
+`--fields=+l` option (that's a lowercase `L`, not a one) because iCM needs the
 `language:<lang>` field in the tags output.
 
-See the _FAQ_ for pointers if ICM does not appear to read your tag files.
+See the _FAQ_ for pointers if iCM does not appear to read your tag files.
 
 This option is off by default because it makes Vim slower if your tags are on a
 network directory.
@@ -1152,7 +1152,7 @@ let g:ycm_collect_identifiers_from_tags_files = 0
 
 ### The `g:ycm_seed_identifiers_with_syntax` option
 
-When this option is set to `1`, ICM's identifier completer will seed its
+When this option is set to `1`, iCM's identifier completer will seed its
 identifier database with the keywords of the programming language you're
 writing.
 
@@ -1203,11 +1203,11 @@ let g:ycm_extra_conf_vim_data = []
 
 ### The `g:ycm_server_python_interpreter` option
 
-ICM will by default search for an appropriate Python interpreter on your system.
+iCM will by default search for an appropriate Python interpreter on your system.
 You can use this option to override that behavior and force the use of a
 specific interpreter of your choosing.
 
-**NOTE:** This interpreter is only used for the [ycmd server][ycmd]. The ICM
+**NOTE:** This interpreter is only used for the [ycmd server][ycmd]. The iCM
 client running inside Vim always uses the Python interpreter that's embedded
 inside Vim.
 
@@ -1219,7 +1219,7 @@ let g:ycm_server_python_interpreter = ''
 
 ### The `g:ycm_keep_logfiles` option
 
-When this option is set to `1`, ICM and the [ycmd completion server][ycmd] will
+When this option is set to `1`, iCM and the [ycmd completion server][ycmd] will
 keep the logfiles around after shutting down (they are deleted on shutdown by
 default).
 
@@ -1233,7 +1233,7 @@ let g:ycm_keep_logfiles = 0
 
 ### The `g:ycm_log_level` option
 
-The logging level that ICM and the [ycmd completion server][ycmd] use. Valid
+The logging level that iCM and the [ycmd completion server][ycmd] use. Valid
 values are the following, from most verbose to least verbose:
 - `debug`
 - `info`
@@ -1285,12 +1285,12 @@ let g:ycm_csharp_server_port = 0
 
 ### The `g:ycm_csharp_insert_namespace_expr` option
 
-By default, when ICM inserts a namespace, it will insert the `using` statement
+By default, when iCM inserts a namespace, it will insert the `using` statement
 under the nearest `using` statement. You may prefer that the `using` statement is
 inserted somewhere, for example, to preserve sorting. If so, you can set this
 option to override this behavior.
 
-When this option is set, instead of inserting the `using` statement itself, ICM
+When this option is set, instead of inserting the `using` statement itself, iCM
 will set the global variable `g:ycm_namespace_to_insert` to the namespace to
 insert, and then evaluate this option's value as an expression. The option's
 expression is responsible for inserting the namespace - the default insertion
@@ -1304,13 +1304,13 @@ let g:ycm_csharp_insert_namespace_expr = ''
 
 ### The `g:ycm_add_preview_to_completeopt` option
 
-When this option is set to `1`, ICM will add the `preview` string to Vim's
+When this option is set to `1`, iCM will add the `preview` string to Vim's
 `completeopt` option (see `:h completeopt`). If your `completeopt` option
 already has `preview` set, there will be no effect. You can see the current
 state of your `completeopt` setting with `:set completeopt?` (yes, the question
 mark is important).
 
-When `preview` is present in `completeopt`, ICM will use the `preview` window at
+When `preview` is present in `completeopt`, iCM will use the `preview` window at
 the top of the file to store detailed information about the current completion
 candidate (but only if the candidate came from the semantic engine). For
 instance, it would show the full function prototype and all the function
@@ -1324,7 +1324,7 @@ let g:ycm_add_preview_to_completeopt = 0
 
 ### The `g:ycm_autoclose_preview_window_after_completion` option
 
-When this option is set to `1`, ICM will auto-close the `preview` window after
+When this option is set to `1`, iCM will auto-close the `preview` window after
 the user accepts the offered completion string. If there is no `preview` window
 triggered because there is no `preview` string in `completeopt`, this option is
 irrelevant. See the `g:ycm_add_preview_to_completeopt` option for more details.
@@ -1337,7 +1337,7 @@ let g:ycm_autoclose_preview_window_after_completion = 0
 
 ### The `g:ycm_autoclose_preview_window_after_insertion` option
 
-When this option is set to `1`, ICM will auto-close the `preview` window after
+When this option is set to `1`, iCM will auto-close the `preview` window after
 the user leaves insert mode. This option is irrelevant if
 `g:ycm_autoclose_preview_window_after_completion` is set or if no `preview`
 window is triggered. See the `g:ycm_add_preview_to_completeopt` option for more
@@ -1400,9 +1400,9 @@ has been compiled in). This key mapping can be used to trigger semantic
 completion anywhere. Useful for searching for top-level functions and classes.
 
 Console Vim (not Gvim or MacVim) passes `<Nul>` to Vim when the user types
-`<C-Space>` so ICM will make sure that `<Nul>` is used in the map command when
+`<C-Space>` so iCM will make sure that `<Nul>` is used in the map command when
 you're editing in console Vim, and `<C-Space>` in GUI Vim. This means that you
-can just press `<C-Space>` in both console and GUI Vim and ICM will do the right
+can just press `<C-Space>` in both console and GUI Vim and iCM will do the right
 thing.
 
 Setting this option to an empty string will make sure no mapping is created.
@@ -1429,7 +1429,7 @@ let g:ycm_key_detailed_diagnostics = '<leader>d'
 
 ### The `g:ycm_global_ycm_extra_conf` option
 
-Normally, ICM searches for a `.ycm_extra_conf.py` file for compilation flags
+Normally, iCM searches for a `.ycm_extra_conf.py` file for compilation flags
 (see the User Guide for more details on how this works). This option specifies
 a fallback path to a config file which is used if no `.ycm_extra_conf.py` is
 found.
@@ -1444,11 +1444,11 @@ let g:ycm_global_ycm_extra_conf = ''
 
 ### The `g:ycm_confirm_extra_conf` option
 
-When this option is set to `1` ICM will ask once per `.ycm_extra_conf.py` file
+When this option is set to `1` iCM will ask once per `.ycm_extra_conf.py` file
 if it is safe to be loaded. This is to prevent execution of malicious code
 from a `.ycm_extra_conf.py` file you didn't write.
 
-To selectively get ICM to ask/not ask about loading certain `.ycm_extra_conf.py`
+To selectively get iCM to ask/not ask about loading certain `.ycm_extra_conf.py`
 files, see the `g:ycm_extra_conf_globlist` option.
 
 Default: `1`
@@ -1499,9 +1499,9 @@ let g:ycm_extra_conf_globlist = []
 
 ### The `g:ycm_filepath_completion_use_working_dir` option
 
-By default, ICM's filepath completion will interpret relative paths like `../`
+By default, iCM's filepath completion will interpret relative paths like `../`
 as being relative to the folder of the file of the currently active buffer.
-Setting this option will force ICM to always interpret relative paths as being
+Setting this option will force iCM to always interpret relative paths as being
 relative to Vim's current working directory.
 
 Default: `0`
@@ -1543,7 +1543,7 @@ let g:ycm_semantic_triggers =  {
 
 ### The `g:ycm_cache_omnifunc` option
 
-Some omnicompletion engines do not work well with the ICM cache—in particular,
+Some omnicompletion engines do not work well with the iCM cache—in particular,
 they might not produce all possible results for a given prefix. By unsetting
 this option you can ensure that the omnicompletion engine is re-queried on every
 keypress. That will ensure all completions will be presented, but might cause
@@ -1557,7 +1557,7 @@ let g:ycm_cache_omnifunc = 1
 
 ### The `g:ycm_use_ultisnips_completer` option
 
-By default, ICM will query the UltiSnips plugin for possible completions of
+By default, iCM will query the UltiSnips plugin for possible completions of
 snippet triggers. This option can turn that behavior off.
 
 Default: `1`
@@ -1595,7 +1595,7 @@ let g:ycm_disable_for_files_larger_than_kb = 1000
 
 ### The `g:ycm_python_binary_path` option
 
-# TODO:jerry Remove
+*TODO:jerry Remove ( I don't think we need this )*
 
 This option specifies the Python interpreter to use to run the [jedi][]
 completion library.  Specify the Python interpreter to use to get completions.
@@ -1608,7 +1608,7 @@ Default: `''`
 let g:ycm_python_binary_path = 'python'
 ```
 
-**NOTE:** the settings above will make ICM use the first `python` executable
+**NOTE:** the settings above will make iCM use the first `python` executable
 found through the PATH.
 
 FAQ
@@ -1616,7 +1616,7 @@ FAQ
 
 ### I used to be able to `import vim` in `.ycm_extra_conf.py`, but now can't
 
-ICM was rewritten to use a client-server architecture where most of the logic is
+iCM was rewritten to use a client-server architecture where most of the logic is
 in the [ycmd server][ycmd]. So the magic `vim` module you could have previously
 imported in your `.ycm_extra_conf.py` files doesn't exist anymore.
 
@@ -1630,7 +1630,7 @@ option for details.
 
 ### I get `ImportError` exceptions that mention `PyInit_ycm_core` or `initycm_core`
 
-These errors are caused by building the ICM native libraries for Python 2 and
+These errors are caused by building the iCM native libraries for Python 2 and
 trying to load them into a Python 3 process (or the other way around).
 
 For instance, if building for Python 2 but loading in Python 3:
@@ -1650,7 +1650,7 @@ specific Python interpreter for `ycmd` is usually the easiest way to solve the
 problem. Common values for that option are `/usr/bin/python` and
 `/usr/bin/python3`.
 
-### I get a linker warning regarding `libpython` on Mac when compiling ICM
+### I get a linker warning regarding `libpython` on Mac when compiling iCM
 
 If the warning is `ld: warning: path '/usr/lib/libpython2.7.dylib' following -L
 not a directory`, then feel free to ignore it; it's caused by a limitation of
@@ -1659,7 +1659,7 @@ CMake and is not an issue. Everything should still work fine.
 ### I get a weird window at the top of my file when I use the semantic engine
 
 This is Vim's `preview` window. Vim uses it to show you extra information about
-something if such information is available. ICM provides Vim with such extra
+something if such information is available. iCM provides Vim with such extra
 information. For instance, when you select a function in the completion list,
 the `preview` window will hold that function's prototype and the prototypes of
 any overloads of the function. It will stay there after you select the
@@ -1675,21 +1675,21 @@ If you don't want this window to ever show up, add `set completeopt-=preview` to
 your `vimrc`. Also make sure that the `g:ycm_add_preview_to_completeopt` option
 is set to `0`.
 
-### It appears that ICM is not working
+### It appears that iCM is not working
 
-In Vim, run `:messages` and carefully read the output. ICM will echo messages to
+In Vim, run `:messages` and carefully read the output. iCM will echo messages to
 the message log if it encounters problems. It's likely you misconfigured
-something and ICM is complaining about it.
+something and iCM is complaining about it.
 
-Also, you may want to run the `:YcmDebugInfo` command; it will make ICM spew out
-various debugging information, including the ICM and [ycmd][] logfile paths and
+Also, you may want to run the `:YcmDebugInfo` command; it will make iCM spew out
+various debugging information, including the iCM and [ycmd][] logfile paths and
 the compile flags for the current file if the file is a C-family language file
 and you have compiled in Clang support. Logfiles can be opened in the editor
 using [the `:YcmToggleLogs` command](#the-ycmtogglelogs-command).
 
 ### Sometimes it takes much longer to get semantic completions than normal
 
-This means that libclang (which ICM uses for C-family semantic completion)
+This means that libclang (which iCM uses for C-family semantic completion)
 failed to pre-compile your file's preamble. In other words, there was an error
 compiling some of the source code you pulled in through your header files. I
 suggest calling the `:YcmDiags` command to see what they were.
@@ -1698,19 +1698,19 @@ Bottom line, if libclang can't pre-compile your file's preamble because there
 were errors in it, you're going to get slow completions because there's no AST
 cache.
 
-### ICM auto-inserts completion strings I don't want!
+### iCM auto-inserts completion strings I don't want!
 
-This means you probably have some mappings that interfere with ICM's internal
+This means you probably have some mappings that interfere with iCM's internal
 ones. Make sure you don't have something mapped to `<C-p>`, `<C-x>` or `<C-u>`
 (in insert mode).
 
-ICM _never_ selects something for you; it just shows you a menu and the user has
+iCM _never_ selects something for you; it just shows you a menu and the user has
 to explicitly select something. If something is being selected automatically,
 this means there's a bug or a misconfiguration somewhere.
 
 ### I get a `E227: mapping already exists for <blah>` error when I start Vim
 
-This means that ICM tried to set up a key mapping but failed because you already
+This means that iCM tried to set up a key mapping but failed because you already
 had something mapped to that key combination. The `<blah>` part of the message
 will tell you what was the key combination that failed.
 
@@ -1724,7 +1724,7 @@ Your system is too old for the precompiled binaries from llvm.org. Compile
 Clang on your machine and then link against the `libclang.so` you just produced.
 See the full installation guide for help.
 
-### I'm trying to use a Homebrew Vim with ICM and I'm getting segfaults
+### I'm trying to use a Homebrew Vim with iCM and I'm getting segfaults
 
 Something (I don't know what) is wrong with the way that Homebrew configures and
 builds Vim. I recommend using [MacVim][]. Even if you don't like the MacVim GUI,
@@ -1734,7 +1734,7 @@ you can use the Vim binary that is inside the MacVim.app package (it's
 ### I have a Homebrew Python and/or MacVim; can't compile/SIGABRT when starting
 
 You should probably run `brew rm python; brew install python` to get the latest
-fixes that should make ICM work with such a configuration. Also rebuild Macvim
+fixes that should make iCM work with such a configuration. Also rebuild Macvim
 then. If you still get problems with this, see [issue #18][issue18] for
 suggestions.
 
@@ -1777,7 +1777,7 @@ which is highly likely to be the system's default Python.
 
 ### I get `libpython2.7.a [...] relocation R_X86_64_32` when compiling
 
-The error is usually encountered when compiling ICM on Centos or RHEL. The full
+The error is usually encountered when compiling iCM on Centos or RHEL. The full
 error looks something like the following:
 
 ```
@@ -1831,7 +1831,7 @@ with `--enable-framework`):
 See the previous answer for how to ensure your python is built to support
 dynamic modules.
 
-### ICM does not read identifiers from my tags files
+### iCM does not read identifiers from my tags files
 
 First, put `let g:ycm_collect_identifiers_from_tags_files = 1` in your vimrc.
 
@@ -1841,7 +1841,7 @@ format][ctags-format]. The format from "plain" ctags is NOT supported. The
 output of `ctags --version` should list "Exuberant Ctags".
 
 Ctags needs to be called with the `--fields=+l` (that's a lowercase `L`, not a
-one) option because ICM needs the `language:<lang>` field in the tags output.
+one) option because iCM needs the `language:<lang>` field in the tags output.
 
 **NOTE:** [Exuberant Ctags][exuberant-ctags] by default sets language tag for
 `*.h` files as `C++`. If you have C (not C++) project, consider giving parameter
@@ -1851,19 +1851,19 @@ one) option because ICM needs the `language:<lang>` field in the tags output.
 ctags` will get you the Exuberant Ctags version.
 
 Also make sure that your Vim `tags` option is set correctly. See `:h 'tags'` for
-details. If you want to see which tag files ICM will read for a given buffer,
+details. If you want to see which tag files iCM will read for a given buffer,
 run `:echo tagfiles()` with the relevant buffer active. Note that that function
 will only list tag files that already exist.
 
 ### `CTRL-U` in insert mode does not work
 
-ICM keeps you in a `completefunc` completion mode when you're typing in insert
+iCM keeps you in a `completefunc` completion mode when you're typing in insert
 mode and Vim disables `<C-U>` in completion mode as a "feature." Sadly there's
 nothing I can do about this.
 
-### ICM conflicts with UltiSnips TAB key usage
+### iCM conflicts with UltiSnips TAB key usage
 
-ICM comes with support for UltiSnips (snippet suggestions in the popup menu),
+iCM comes with support for UltiSnips (snippet suggestions in the popup menu),
 but you'll have to change the UltiSnips mappings. See `:h UltiSnips-triggers` in
 Vim for details. You'll probably want to change some/all of the following
 options:
@@ -1876,21 +1876,21 @@ g:UltiSnipsJumpBackwardTrigger
 
 ### Snippets added with `:UltiSnipsAddFiletypes` do not appear in the popup menu
 
-For efficiency, ICM only fetches UltiSnips snippets in specific scenarios like
-visiting a buffer or setting its filetype. You can force ICM to retrieve them by
+For efficiency, iCM only fetches UltiSnips snippets in specific scenarios like
+visiting a buffer or setting its filetype. You can force iCM to retrieve them by
 manually triggering the `FileType` autocommand:
 
 ```viml
 :doautocmd FileType
 ```
 
-### Why isn't ICM just written in plain VimScript, FFS?
+### Why isn't iCM just written in plain VimScript, FFS?
 
 Because of the identifier completion engine and subsequence-based filtering.
 Let's say you have _many_ dozens of files open in a single Vim instance (I often
 do); the identifier-based engine then needs to store thousands (if not tens of
 thousands) of identifiers in its internal data-structures. When the user types,
-ICM needs to perform subsequence-based filtering on _all_ of those identifiers
+iCM needs to perform subsequence-based filtering on _all_ of those identifiers
 (every single one!) in less than 10 milliseconds.
 
 I'm sorry, but that level of performance is just plain impossible to achieve
@@ -1898,25 +1898,25 @@ with VimScript. I've tried, and the language is just too slow. No, you can't get
 acceptable performance even if you limit yourself to just the identifiers in the
 current file and simple prefix-based filtering.
 
-### Why does ICM demand such a recent version of Vim?
+### Why does iCM demand such a recent version of Vim?
 
-ICM needs a version of Vim with the timers feature to achieve full
+iCM needs a version of Vim with the timers feature to achieve full
 asynchronicity. This feature is available since Vim 7.4.1578.
 
 ### Nasty bugs happen if I have the `vim-autoclose` plugin installed
 
 Use the [delimitMate][] plugin instead. It does the same thing without
-conflicting with ICM.
+conflicting with iCM.
 
 ### I get an internal compiler error when installing
 
 This can be a problem on virtual servers with limited memory. A possible
 solution is to add more swap memory. A more practical solution would be to force
 the build script to run only one compile job at a time. You can do this by
-setting the `ICM_CORES` environment variable to `1`. Example:
+setting the `iCM_CORES` environment variable to `1`. Example:
 
 ```
-ICM_CORES=1 ./install.py --clang-completer
+iCM_CORES=1 ./install.py --clang-completer
 ```
 
 ### I get weird errors when I press `Ctrl-C` in Vim
@@ -1926,7 +1926,7 @@ _Never_ use `Ctrl-C` in Vim.
 Using `Ctrl-C` to exit insert mode in Vim is a bad idea. The main issue here is
 that `Ctrl-C` in Vim doesn't just leave insert mode, it leaves it without
 triggering `InsertLeave` autocommands (as per Vim docs). This is a bad idea and
-is likely to break many other things and not just ICM.
+is likely to break many other things and not just iCM.
 
 Bottom line, if you use `Ctrl-C` to exit insert mode in Vim, you're gonna have a
 bad time.
@@ -1963,7 +1963,7 @@ os.environ['PATH'] = ';'.join(path)
 EOF
 ```
 
-### I hear that ICM only supports Python 2, is that true?
+### I hear that iCM only supports Python 2, is that true?
 
 **No.** Both the Vim client and the [ycmd server][ycmd] run on Python 2 or 3. If
 you work on a Python 3 project, you may need to set `g:ycm_python_binary_path`
@@ -1989,7 +1989,7 @@ first Python and used to run [JediHTTP][].
 
 ### I want to defer loading of iCompleteMe until after Vim finishes booting
 
-In recent versions of Vim, you can install ICM in a folder under
+In recent versions of Vim, you can install iCM in a folder under
 `~/.vim/pack/*/opt` and then load it once the user is idle via an autocommand:
 
 ```viml
@@ -2000,9 +2000,9 @@ augroup load_ycm
 augroup END
 ```
 
-### ICM does not shut down when I quit Vim
+### iCM does not shut down when I quit Vim
 
-ICM relies on the `VimLeave` event to shut down the [ycmd server][ycmd]. Some
+iCM relies on the `VimLeave` event to shut down the [ycmd server][ycmd]. Some
 plugins prevent this event from triggering by exiting Vim through an autocommand
 without using the `nested` keyword (see `:h autocmd-nested`). One of these
 plugins is [vim-nerdtree-tabs][]. You should identify which plugin is
@@ -2023,11 +2023,7 @@ Contact
 If you have bug reports or feature suggestions, please use the [issue
 tracker][tracker].
 
-The latest version of the plugin is available at
-<http://valloric.github.io/iCompleteMe/>.
-
-The author's homepage is <http://val.markovic.io>.
-
+The author's homepage is <http://jerrymarino.com>.
 
 License
 -------
@@ -2075,5 +2071,6 @@ This software is licensed under the [GPL v3 license][gpl].
 
 [SwiftySwiftVim]: https://github.com/jerrymarino/swiftyswiftvim
 [YouCompleteMe]: https://github.com/Vallorc/YouCompleteMe
-[iCompleteMe]: https://github.com/jerrymarino/iCompleteMe
+[YCM]: https://github.com/Vallorc/YouCompleteMe
+[iCM]: https://github.com/jerrymarino/iCompleteMe
 
