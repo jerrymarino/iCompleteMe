@@ -21,12 +21,6 @@ iCompleteMe: Swift comprehension in Vim
     - [General Semantic Completion](#general-semantic-completion)
     - [Diagnostic Display](#diagnostic-display)
         - [Diagnostic Highlighting Groups](#diagnostic-highlighting-groups)
-- [Commands](#commands)
-    - [YcmCompleter subcommands](#ycmcompleter-subcommands)
-        - [GoTo Commands](#goto-commands)
-        - [Semantic Information Commands](#semantic-information-commands)
-        - [Refactoring and FixIt Commands](#refactoring-and-fixit-commands)
-        - [Miscellaneous Commands](#miscellaneous-commands)
 - [Functions](#functions)
 - [Autocommands](#autocommands)
 - [Options](#options)
@@ -502,9 +496,22 @@ string.
 
 ### Semantic Compliation
 
-#### Use a [compilation database][compdb]
+#### Setup a [compilation database][compdb]
 
-TODO:jerry write more info here
+By default, it provides a basic level of completion support: completions within
+a single file.
+
+In most cases, build options and dependencies need to be specified to have a
+good experience.
+
+SwiftySwiftVim uses a [Compilation
+Database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) to import
+compiler settings. Setup the build system to generate one at the workspace
+root.
+
+For Xcode *Project* users, [XcodeCompilationDatabase
+](https://github.com/jerrymarino/XcodeCompilationDatabase) makes this easy.
+
 
 ### Diagnostic Display
 
@@ -2067,3 +2074,6 @@ This software is licensed under the [GPL v3 license][gpl].
 [vim-nerdtree-tabs]: https://github.com/jistr/vim-nerdtree-tabs
 
 [SwiftySwiftVim]: https://github.com/jerrymarino/swiftyswiftvim
+[YouCompleteMe]: https://github.com/Vallorc/YouCompleteMe
+[iCompleteMe]: https://github.com/jerrymarino/iCompleteMe
+
