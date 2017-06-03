@@ -233,13 +233,13 @@ def YouCompleteMe_ToggleLogs_WithParameters_test( ycm,
       call( ycm._client_logfile )
     ] )
 
-
+# FIXME: this test shouldn't rely on servers
 @YouCompleteMeInstance()
 @patch( 'ycm.vimsupport.PostVimMessage' )
 def YouCompleteMe_ToggleLogs_WithoutParameters_test( ycm, post_vim_message ):
   # We test on a Python buffer because the Python completer has subserver
   # logfiles.
-  python_buffer = VimBuffer( 'buffer.py', filetype = 'python' )
+  python_buffer = VimBuffer( 'buffer.py', filetype = 'swift' )
   with MockVimBuffers( [ python_buffer ], python_buffer ):
     ycm.ToggleLogs()
 
@@ -248,8 +248,8 @@ def YouCompleteMe_ToggleLogs_WithoutParameters_test( ycm, post_vim_message ):
     post_vim_message.call_args[ 0 ][ 0 ],
     matches_regexp(
       'Available logfiles are:\n'
-      'jedihttp_\d+_stderr_.+.log\n'
-      'jedihttp_\d+_stdout_.+.log\n'
+      'swiftyswift_http_\d+_stderr_.+.log\n'
+      'swiftyswift_http_\d+_stdout_.+.log\n'
       'ycm_.+.log\n'
       'ycmd_\d+_stderr_.+.log\n'
       'ycmd_\d+_stdout_.+.log' )
