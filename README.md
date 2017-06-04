@@ -32,17 +32,19 @@ iCompleteMe: Swift comprehension in Vim
 Intro
 -----
 
-iCompleteMe is an awesome Vim plugin designed for the Swift programming language.
-
 ### Featuring
 
+* Semantic completion and placeholder navigation
 * Super-fast identifier completer including tags files and syntax elements
 * Semantic diagnostics while you type
 
-and much more coming soon.
+![SwiftySwiftVimPreview](https://cloud.githubusercontent.com/assets/1245820/26759463/4084bde8-48b3-11e7-869b-33ec00d70eef.gif)
 
-It should live in parallel to ( and other completion systems
-like [YouCompleteMe][] ): use [iCompleteMe][] the Swift files.
+
+*Warning: it's in a bleeding edge, pre-alpha state.*
+
+It should live in parallel to ( and other completion systems like
+[YouCompleteMe][] ): use [iCompleteMe][] the Swift files.
 
 Background
 -----
@@ -52,13 +54,12 @@ attempting to implement Swift support for [YouCompleteMe][], I found that it
 wasn't possible to achieve ideal behavior under the conventions of [YCM][];
 [iCM][] spawned.
 
-Instead of shoehornning Swift into completion behaviors that work OK for other
-languges, [iCompleteMe][] implements behaviors which are ideal for Swift.
+Instead of shoehorning Swift into completion behaviors that work OK for other
+languages, [iCompleteMe][] implements behaviors which are ideal for Swift.
 
-Additionally, [iCompleteMe][]'s core subsystems only work with Swift. Because
-of this, the codebase has a significantly smaller footprint, Which makes it
-easier to install, easier to reason about, and more stable on the CI ( in
-theory ).
+Additionally, [iCompleteMe][]'s core subsystems only work with Swift.  The
+codebase has a significantly smaller footprint, which makes it easier to
+install, easier to reason about, and more stable on the CI ( in theory ).
 
 The name [iCompleteMe][] is a statement about developing a system that
 considers ideal behaviors for an *individual* language and a tribute to
