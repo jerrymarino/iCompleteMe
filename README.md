@@ -2029,7 +2029,8 @@ License
 -------
 
 This software is licensed under the [GPL v3 license][gpl].
-© 2015-2017 iCompleteMe contributors
+© 2015-2017 YouCompleteMe contributors
+© 2017 Jerry Marino
 
 [ycmd]: https://github.com/Valloric/ycmd
 [Clang]: http://clang.llvm.org/
@@ -2071,6 +2072,8 @@ This software is licensed under the [GPL v3 license][gpl].
 
 [SwiftySwiftVim]: https://github.com/jerrymarino/swiftyswiftvim
 [YouCompleteMe]: https://github.com/Vallorc/YouCompleteMe
+[Valloric]: https://github.com/Vallorc
+[iCompleteMe]: https://github.com/jerrymarino/iCompleteMe
 [YCM]: https://github.com/Vallorc/YouCompleteMe
 [iCM]: https://github.com/jerrymarino/iCompleteMe
 
