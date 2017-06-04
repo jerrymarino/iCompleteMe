@@ -146,3 +146,6 @@ endif
 
 " This is basic vim plugin boilerplate
 call s:restore_cpo()
+
+" Vim does not support Swift right now
+autocmd BufNewFile,BufRead *.swift set filetype=swift
