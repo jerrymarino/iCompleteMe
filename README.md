@@ -34,17 +34,16 @@ Intro
 
 ### Featuring
 
-* Semantic completion and placeholder navigation
+* Semantic completion
+* Semantic Diagnostics: see real-time warnings and errors before builds
 * Super-fast identifier completer including tags files and syntax elements
-* Semantic diagnostics while you type
+* Swifty placeholder navigation: tab swiftly through long method completions
 
 ![SwiftySwiftVimPreview](https://cloud.githubusercontent.com/assets/1245820/26759463/4084bde8-48b3-11e7-869b-33ec00d70eef.gif)
 
 
 *Warning: it's in a bleeding edge, pre-alpha state.*
 
-It should live in parallel to ( and other completion systems like
-[YouCompleteMe][] ): use [iCompleteMe][] the Swift files.
 
 Background
 -----
@@ -64,6 +63,9 @@ install, easier to reason about, and more stable on the CI ( in theory ).
 The name [iCompleteMe][] is a statement about developing a system that
 considers ideal behaviors for an *individual* language and a tribute to
 [Valloric][]'s and the [YCM][]'s teams legacy.
+
+** It can exist in parallel to [YouCompleteMe][]: use [iCompleteMe][] the for
+Swift files.**
 
 Installation
 ------------
@@ -556,7 +558,7 @@ cursor is on the line with the diagnostic.
 You can also see the full diagnostic message for all the diagnostics in the
 current file in Vim's `locationlist`, which can be opened with the `:lopen` and
 `:lclose` commands (make sure you have set `let
-g:ycm_always_populate_location_list = 1` in your vimrc). A good way to toggle
+g:icm_always_populate_location_list = 1` in your vimrc). A good way to toggle
 the display of the `locationlist` with a single key mapping is provided by
 another (very small) Vim plugin called [ListToggle][] (which also makes it
 possible to change the height of the `locationlist` window), also written by
@@ -624,7 +626,7 @@ is not available as not all completers are able to provide this indication. For
 example, the c-sharp completer provides many fix-its but does not add this
 additional indication.
 
-The `g:ycm_open_loclist_on_ycm_diags` option can be used to prevent the location
+The `g:icm_open_loclist_on_ycm_diags` option can be used to prevent the location
 list from opening, but still have it filled with new diagnostic data. See the
 _Options_ section for details.
 
@@ -780,13 +782,13 @@ you don't need to change any options. These options can be configured in your
 [vimrc script][vimrc] by including a line like this:
 
 ```viml
-let g:ycm_min_num_of_chars_for_completion = 1
+let g:icm_min_num_of_chars_for_completion = 1
 ```
 
 Note that after changing an option in your [vimrc script][vimrc] you have to
 restart Vim for the changes to take effect.
 
-### The `g:ycm_min_num_of_chars_for_completion` option
+### The `g:icm_min_num_of_chars_for_completion` option
 
 This option controls the number of characters the user needs to type before
 identifier-based completion suggestions are triggered. For example, if the
@@ -800,10 +802,10 @@ identifier completion engine and just leaves the semantic engine.
 Default: `2`
 
 ```viml
-let g:ycm_min_num_of_chars_for_completion = 2
+let g:icm_min_num_of_chars_for_completion = 2
 ```
 
-### The `g:ycm_min_num_identifier_candidate_chars` option
+### The `g:icm_min_num_identifier_candidate_chars` option
 
 This option controls the minimum number of characters that a completion
 candidate coming from the identifier completer must have to be shown in the
@@ -817,10 +819,10 @@ on the various semantic completers.
 Default: `0`
 
 ```viml
-let g:ycm_min_num_identifier_candidate_chars = 0
+let g:icm_min_num_identifier_candidate_chars = 0
 ```
 
-### The `g:ycm_auto_trigger` option
+### The `g:icm_auto_trigger` option
 
 When set to `0`, this option turns off iCM's identifier completer (the
 as-you-type popup) _and_ the semantic triggers (the popup you'd get after typing
@@ -828,16 +830,16 @@ as-you-type popup) _and_ the semantic triggers (the popup you'd get after typing
 `<C-Space>` shortcut.
 
 If you want to just turn off the identifier completer but keep the semantic
-triggers, you should set `g:ycm_min_num_of_chars_for_completion` to a high
+triggers, you should set `g:icm_min_num_of_chars_for_completion` to a high
 number like `99`.
 
 Default: `1`
 
 ```viml
-let g:ycm_auto_trigger = 1
+let g:icm_auto_trigger = 1
 ```
 
-### The `g:ycm_filetype_whitelist` option
+### The `g:icm_filetype_whitelist` option
 
 This option controls for which Vim filetypes (see `:h filetype`) should iCM be
 turned on. The option value should be a Vim dictionary with keys being filetype
@@ -847,7 +849,7 @@ is used like a hash set, meaning that only the keys matter).
 The `*` key is special and matches all filetypes. By default, the whitelist
 contains only this `*` key.
 
-iCM also has a `g:ycm_filetype_blacklist` option that lists filetypes for which
+iCM also has a `g:icm_filetype_blacklist` option that lists filetypes for which
 iCM shouldn't be turned on. iCM will work only in filetypes that both the
 whitelist and the blacklist allow (the blacklist "allows" a filetype by _not_
 having it as a key).
@@ -863,25 +865,25 @@ semantic engine will operate in them.
 
 You can get the filetype of the current file in Vim with `:set ft?`.
 
-Default: `{'*' : 1}`
+Default: `{'swift' : 1}`
 
 ```viml
-let g:ycm_filetype_whitelist = { '*': 1 }
+let g:icm_filetype_whitelist = { 'swift': 1 }
 ```
 
-### The `g:ycm_filetype_blacklist` option
+### The `g:icm_filetype_blacklist` option
 
 This option controls for which Vim filetypes (see `:h filetype`) should iCM be
 turned off. The option value should be a Vim dictionary with keys being filetype
 strings (like `python`, `cpp` etc) and values being unimportant (the dictionary
 is used like a hash set, meaning that only the keys matter).
 
-See the `g:ycm_filetype_whitelist` option for more details on how this works.
+See the `g:icm_filetype_whitelist` option for more details on how this works.
 
 Default: `[see next line]`
 
 ```viml
-let g:ycm_filetype_blacklist = {
+let g:icm_filetype_blacklist = {
       \ 'tagbar' : 1,
       \ 'qf' : 1,
       \ 'notes' : 1,
@@ -895,7 +897,7 @@ let g:ycm_filetype_blacklist = {
       \}
 ```
 
-### The `g:ycm_filetype_specific_completion_to_disable` option
+### The `g:icm_filetype_specific_completion_to_disable` option
 
 This option controls for which Vim filetypes (see `:h filetype`) should the iCM
 semantic completion engine be turned off. The option value should be a Vim
@@ -914,12 +916,12 @@ You can get the filetype of the current file in Vim with `:set ft?`.
 Default: `[see next line]`
 
 ```viml
-let g:ycm_filetype_specific_completion_to_disable = {
+let g:icm_filetype_specific_completion_to_disable = {
       \ 'gitcommit': 1
       \}
 ```
 
-### The `g:ycm_show_diagnostics_ui` option
+### The `g:icm_show_diagnostics_ui` option
 
 When set, this option turns on iCM's diagnostic display features. See the
 _Diagnostic display_ section in the _User Manual_ for more details.
@@ -941,10 +943,10 @@ Syntastic checkers, unset this option.
 Default: `1`
 
 ```viml
-let g:ycm_show_diagnostics_ui = 1
+let g:icm_show_diagnostics_ui = 1
 ```
 
-### The `g:ycm_error_symbol` option
+### The `g:icm_error_symbol` option
 
 iCM will use the value of this option as the symbol for errors in the Vim
 gutter.
@@ -956,10 +958,10 @@ before using this option's default.
 Default: `>>`
 
 ```viml
-let g:ycm_error_symbol = '>>'
+let g:icm_error_symbol = '>>'
 ```
 
-### The `g:ycm_warning_symbol` option
+### The `g:icm_warning_symbol` option
 
 iCM will use the value of this option as the symbol for warnings in the Vim
 gutter.
@@ -971,10 +973,10 @@ before using this option's default.
 Default: `>>`
 
 ```viml
-let g:ycm_warning_symbol = '>>'
+let g:icm_warning_symbol = '>>'
 ```
 
-### The `g:ycm_enable_diagnostic_signs` option
+### The `g:icm_enable_diagnostic_signs` option
 
 When this option is set, iCM will put icons in Vim's gutter on lines that have a
 diagnostic set. Turning this off will also turn off the `YcmErrorLine` and
@@ -987,10 +989,10 @@ before using this option's default.
 Default: `1`
 
 ```viml
-let g:ycm_enable_diagnostic_signs = 1
+let g:icm_enable_diagnostic_signs = 1
 ```
 
-### The `g:ycm_enable_diagnostic_highlighting` option
+### The `g:icm_enable_diagnostic_highlighting` option
 
 When this option is set, iCM will highlight regions of text that are related to
 the diagnostic that is present on a line, if any.
@@ -1002,10 +1004,10 @@ option before using this option's default.
 Default: `1`
 
 ```viml
-let g:ycm_enable_diagnostic_highlighting = 1
+let g:icm_enable_diagnostic_highlighting = 1
 ```
 
-### The `g:ycm_echo_current_diagnostic` option
+### The `g:icm_echo_current_diagnostic` option
 
 When this option is set, iCM will echo the text of the diagnostic present on the
 current line when you move your cursor to that line. If a `FixIt` is available
@@ -1018,10 +1020,10 @@ option before using this option's default.
 Default: `1`
 
 ```viml
-let g:ycm_echo_current_diagnostic = 1
+let g:icm_echo_current_diagnostic = 1
 ```
 
-### The `g:ycm_filter_diagnostics` option
+### The `g:icm_filter_diagnostics` option
 
 This option controls which diagnostics will be rendered by iCM. This option
 holds a dictionary of key-values, where the keys are Vim's filetype strings
@@ -1045,7 +1047,7 @@ matches when the diagnostic has the same level.
 Default: `{}`
 
 ```viml
-let g:ycm_filter_diagnostics = {
+let g:icm_filter_diagnostics = {
   \ "java": {
   \      "regex": [ ".*taco.*", ... ],
   \      "level": "error",
@@ -1054,7 +1056,7 @@ let g:ycm_filter_diagnostics = {
   \ }
 ```
 
-### The `g:ycm_always_populate_location_list` option
+### The `g:icm_always_populate_location_list` option
 
 When this option is set, iCM will populate the location list automatically every
 time it gets new diagnostic data. This option is off by default so as not to
@@ -1070,10 +1072,10 @@ default.
 Default: `0`
 
 ```viml
-let g:ycm_always_populate_location_list = 0
+let g:icm_always_populate_location_list = 0
 ```
 
-### The `g:ycm_open_loclist_on_ycm_diags` option
+### The `g:icm_open_loclist_on_ycm_diags` option
 
 When this option is set, `:YcmDiags` will automatically open the location list
 after forcing a compilation and filling the list with diagnostic data.
@@ -1083,10 +1085,10 @@ See `:help location-list` in Vim to learn more about the location list.
 Default: `1`
 
 ```viml
-let g:ycm_open_loclist_on_ycm_diags = 1
+let g:icm_open_loclist_on_ycm_diags = 1
 ```
 
-### The `g:ycm_complete_in_comments` option
+### The `g:icm_complete_in_comments` option
 
 When this option is set to `1`, iCM will show the completion menu even when
 typing inside comments.
@@ -1094,10 +1096,10 @@ typing inside comments.
 Default: `0`
 
 ```viml
-let g:ycm_complete_in_comments = 0
+let g:icm_complete_in_comments = 0
 ```
 
-### The `g:ycm_complete_in_strings` option
+### The `g:icm_complete_in_strings` option
 
 When this option is set to `1`, iCM will show the completion menu even when
 typing inside strings.
@@ -1111,10 +1113,10 @@ as well.
 Default: `1`
 
 ```viml
-let g:ycm_complete_in_strings = 1
+let g:icm_complete_in_strings = 1
 ```
 
-### The `g:ycm_collect_identifiers_from_comments_and_strings` option
+### The `g:icm_collect_identifiers_from_comments_and_strings` option
 
 When this option is set to `1`, iCM's identifier completer will also collect
 identifiers from strings and comments. Otherwise, the text in comments and
@@ -1123,10 +1125,10 @@ strings will be ignored.
 Default: `0`
 
 ```viml
-let g:ycm_collect_identifiers_from_comments_and_strings = 0
+let g:icm_collect_identifiers_from_comments_and_strings = 0
 ```
 
-### The `g:ycm_collect_identifiers_from_tags_files` option
+### The `g:icm_collect_identifiers_from_tags_files` option
 
 When this option is set to `1`, iCM's identifier completer will also collect
 identifiers from tags files. The list of tags files to examine is retrieved from
@@ -1148,10 +1150,10 @@ network directory.
 Default: `0`
 
 ```viml
-let g:ycm_collect_identifiers_from_tags_files = 0
+let g:icm_collect_identifiers_from_tags_files = 0
 ```
 
-### The `g:ycm_seed_identifiers_with_syntax` option
+### The `g:icm_seed_identifiers_with_syntax` option
 
 When this option is set to `1`, iCM's identifier completer will seed its
 identifier database with the keywords of the programming language you're
@@ -1164,10 +1166,10 @@ Usually at least 95% of the keywords are successfully extracted.
 Default: `0`
 
 ```viml
-let g:ycm_seed_identifiers_with_syntax = 0
+let g:icm_seed_identifiers_with_syntax = 0
 ```
 
-### The `g:ycm_extra_conf_vim_data` option
+### The `g:icm_extra_conf_vim_data` option
 
 If you're using semantic completion for C-family files, this option might come
 handy; it's a way of sending data from Vim to your `FlagsForFile` function in
@@ -1199,10 +1201,10 @@ You can then get to `client_data` with `kwargs['client_data']`.
 Default: `[]`
 
 ```viml
-let g:ycm_extra_conf_vim_data = []
+let g:icm_extra_conf_vim_data = []
 ```
 
-### The `g:ycm_server_python_interpreter` option
+### The `g:icm_server_python_interpreter` option
 
 iCM will by default search for an appropriate Python interpreter on your system.
 You can use this option to override that behavior and force the use of a
@@ -1215,10 +1217,10 @@ inside Vim.
 Default: `''`
 
 ```viml
-let g:ycm_server_python_interpreter = ''
+let g:icm_server_python_interpreter = ''
 ```
 
-### The `g:ycm_keep_logfiles` option
+### The `g:icm_keep_logfiles` option
 
 When this option is set to `1`, iCM and the [ycmd completion server][ycmd] will
 keep the logfiles around after shutting down (they are deleted on shutdown by
@@ -1229,10 +1231,10 @@ To see where the logfiles are, call `:YcmDebugInfo`.
 Default: `0`
 
 ```viml
-let g:ycm_keep_logfiles = 0
+let g:icm_keep_logfiles = 0
 ```
 
-### The `g:ycm_log_level` option
+### The `g:icm_log_level` option
 
 The logging level that iCM and the [ycmd completion server][ycmd] use. Valid
 values are the following, from most verbose to least verbose:
@@ -1247,10 +1249,10 @@ Note that `debug` is _very_ verbose.
 Default: `info`
 
 ```viml
-let g:ycm_log_level = 'info'
+let g:icm_log_level = 'info'
 ```
 
-### The `g:ycm_auto_start_csharp_server` option
+### The `g:icm_auto_start_csharp_server` option
 
 When set to `1`, the OmniSharp server will be automatically started (once per
 Vim session) when you open a C# file.
@@ -1258,10 +1260,10 @@ Vim session) when you open a C# file.
 Default: `1`
 
 ```viml
-let g:ycm_auto_start_csharp_server = 1
+let g:icm_auto_start_csharp_server = 1
 ```
 
-### The `g:ycm_auto_stop_csharp_server` option
+### The `g:icm_auto_stop_csharp_server` option
 
 When set to `1`, the OmniSharp server will be automatically stopped upon
 closing Vim.
@@ -1269,22 +1271,22 @@ closing Vim.
 Default: `1`
 
 ```viml
-let g:ycm_auto_stop_csharp_server = 1
+let g:icm_auto_stop_csharp_server = 1
 ```
 
-### The `g:ycm_csharp_server_port` option
+### The `g:icm_csharp_server_port` option
 
-When g:ycm_auto_start_csharp_server is set to `1`, specifies the port for
+When g:icm_auto_start_csharp_server is set to `1`, specifies the port for
 the OmniSharp server to listen on. When set to `0` uses an unused port provided
 by the OS.
 
 Default: `0`
 
 ```viml
-let g:ycm_csharp_server_port = 0
+let g:icm_csharp_server_port = 0
 ```
 
-### The `g:ycm_csharp_insert_namespace_expr` option
+### The `g:icm_csharp_insert_namespace_expr` option
 
 By default, when iCM inserts a namespace, it will insert the `using` statement
 under the nearest `using` statement. You may prefer that the `using` statement is
@@ -1292,7 +1294,7 @@ inserted somewhere, for example, to preserve sorting. If so, you can set this
 option to override this behavior.
 
 When this option is set, instead of inserting the `using` statement itself, iCM
-will set the global variable `g:ycm_namespace_to_insert` to the namespace to
+will set the global variable `g:icm_namespace_to_insert` to the namespace to
 insert, and then evaluate this option's value as an expression. The option's
 expression is responsible for inserting the namespace - the default insertion
 will not occur.
@@ -1300,10 +1302,10 @@ will not occur.
 Default: ''
 
 ```viml
-let g:ycm_csharp_insert_namespace_expr = ''
+let g:icm_csharp_insert_namespace_expr = ''
 ```
 
-### The `g:ycm_add_preview_to_completeopt` option
+### The `g:icm_add_preview_to_completeopt` option
 
 When this option is set to `1`, iCM will add the `preview` string to Vim's
 `completeopt` option (see `:h completeopt`). If your `completeopt` option
@@ -1320,37 +1322,37 @@ overloads in the window if the current completion is a function name.
 Default: `0`
 
 ```viml
-let g:ycm_add_preview_to_completeopt = 0
+let g:icm_add_preview_to_completeopt = 0
 ```
 
-### The `g:ycm_autoclose_preview_window_after_completion` option
+### The `g:icm_autoclose_preview_window_after_completion` option
 
 When this option is set to `1`, iCM will auto-close the `preview` window after
 the user accepts the offered completion string. If there is no `preview` window
 triggered because there is no `preview` string in `completeopt`, this option is
-irrelevant. See the `g:ycm_add_preview_to_completeopt` option for more details.
+irrelevant. See the `g:icm_add_preview_to_completeopt` option for more details.
 
 Default: `0`
 
 ```viml
-let g:ycm_autoclose_preview_window_after_completion = 0
+let g:icm_autoclose_preview_window_after_completion = 0
 ```
 
-### The `g:ycm_autoclose_preview_window_after_insertion` option
+### The `g:icm_autoclose_preview_window_after_insertion` option
 
 When this option is set to `1`, iCM will auto-close the `preview` window after
 the user leaves insert mode. This option is irrelevant if
-`g:ycm_autoclose_preview_window_after_completion` is set or if no `preview`
-window is triggered. See the `g:ycm_add_preview_to_completeopt` option for more
+`g:icm_autoclose_preview_window_after_completion` is set or if no `preview`
+window is triggered. See the `g:icm_add_preview_to_completeopt` option for more
 details.
 
 Default: `0`
 
 ```viml
-let g:ycm_autoclose_preview_window_after_insertion = 0
+let g:icm_autoclose_preview_window_after_insertion = 0
 ```
 
-### The `g:ycm_max_diagnostics_to_display` option
+### The `g:icm_max_diagnostics_to_display` option
 
 This option controls the maximum number of diagnostics shown to the user when
 errors or warnings are detected in the file. This option is only relevant if you
@@ -1359,10 +1361,10 @@ are using the C-family semantic completion engine.
 Default: `30`
 
 ```viml
-let g:ycm_max_diagnostics_to_display = 30
+let g:icm_max_diagnostics_to_display = 30
 ```
 
-### The `g:ycm_key_list_select_completion` option
+### The `g:icm_key_list_select_completion` option
 
 This option controls the key mappings used to select the first completion
 string.  Invoking any of them repeatedly cycles forward through the completion
@@ -1373,10 +1375,10 @@ Some users like adding `<Enter>` to this list.
 Default: `['<TAB>', '<Down>']`
 
 ```viml
-let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
+let g:icm_key_list_select_completion = ['<TAB>', '<Down>']
 ```
 
-### The `g:ycm_key_list_previous_completion` option
+### The `g:icm_key_list_previous_completion` option
 
 This option controls the key mappings used to select the previous completion
 string. Invoking any of them repeatedly cycles backwards through the completion
@@ -1389,10 +1391,10 @@ because the terminal usually does not forward modifier key combinations to Vim.
 Default: `['<S-TAB>', '<Up>']`
 
 ```viml
-let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
+let g:icm_key_list_previous_completion = ['<S-TAB>', '<Up>']
 ```
 
-### The `g:ycm_key_invoke_completion` option
+### The `g:icm_key_invoke_completion` option
 
 This option controls the key mapping used to invoke the completion menu for
 semantic completion. By default, semantic completion is trigged automatically
@@ -1411,10 +1413,10 @@ Setting this option to an empty string will make sure no mapping is created.
 Default: `<C-Space>`
 
 ```viml
-let g:ycm_key_invoke_completion = '<C-Space>'
+let g:icm_key_invoke_completion = '<C-Space>'
 ```
 
-### The `g:ycm_key_detailed_diagnostics` option
+### The `g:icm_key_detailed_diagnostics` option
 
 This option controls the key mapping used to show the full diagnostic text when
 the user's cursor is on the line with the diagnostic. It basically calls
@@ -1425,10 +1427,10 @@ Setting this option to an empty string will make sure no mapping is created.
 Default: `<leader>d`
 
 ```viml
-let g:ycm_key_detailed_diagnostics = '<leader>d'
+let g:icm_key_detailed_diagnostics = '<leader>d'
 ```
 
-### The `g:ycm_global_ycm_extra_conf` option
+### The `g:icm_global_ycm_extra_conf` option
 
 Normally, iCM searches for a `.ycm_extra_conf.py` file for compilation flags
 (see the User Guide for more details on how this works). This option specifies
@@ -1440,32 +1442,32 @@ You can place such a global file anywhere in your filesystem.
 Default: `''`
 
 ```viml
-let g:ycm_global_ycm_extra_conf = ''
+let g:icm_global_ycm_extra_conf = ''
 ```
 
-### The `g:ycm_confirm_extra_conf` option
+### The `g:icm_confirm_extra_conf` option
 
 When this option is set to `1` iCM will ask once per `.ycm_extra_conf.py` file
 if it is safe to be loaded. This is to prevent execution of malicious code
 from a `.ycm_extra_conf.py` file you didn't write.
 
 To selectively get iCM to ask/not ask about loading certain `.ycm_extra_conf.py`
-files, see the `g:ycm_extra_conf_globlist` option.
+files, see the `g:icm_extra_conf_globlist` option.
 
 Default: `1`
 
 ```viml
-let g:ycm_confirm_extra_conf = 1
+let g:icm_confirm_extra_conf = 1
 ```
 
-### The `g:ycm_extra_conf_globlist` option
+### The `g:icm_extra_conf_globlist` option
 
 This option is a list that may contain several globbing patterns. If a pattern
 starts with a `!` all `.ycm_extra_conf.py` files matching that pattern will be
 blacklisted, that is they won't be loaded and no confirmation dialog will be
 shown. If a pattern does not start with a `!` all files matching that pattern
 will be whitelisted. Note that this option is not used when confirmation is
-disabled using `g:ycm_confirm_extra_conf` and that items earlier in the list
+disabled using `g:icm_confirm_extra_conf` and that items earlier in the list
 will take precedence over the later ones.
 
 Rules:
@@ -1478,7 +1480,7 @@ Rules:
 Example:
 
 ```viml
-let g:ycm_extra_conf_globlist = ['~/dev/*','!~/*']
+let g:icm_extra_conf_globlist = ['~/dev/*','!~/*']
 ```
 
 * The first rule will match everything contained in the `~/dev` directory so
@@ -1495,10 +1497,10 @@ matched against the filename.
 Default: `[]`
 
 ```viml
-let g:ycm_extra_conf_globlist = []
+let g:icm_extra_conf_globlist = []
 ```
 
-### The `g:ycm_filepath_completion_use_working_dir` option
+### The `g:icm_filepath_completion_use_working_dir` option
 
 By default, iCM's filepath completion will interpret relative paths like `../`
 as being relative to the folder of the file of the currently active buffer.
@@ -1508,10 +1510,10 @@ relative to Vim's current working directory.
 Default: `0`
 
 ```viml
-let g:ycm_filepath_completion_use_working_dir = 0
+let g:icm_filepath_completion_use_working_dir = 0
 ```
 
-### The `g:ycm_semantic_triggers` option
+### The `g:icm_semantic_triggers` option
 
 This option controls the character-based triggers for the various semantic
 completion engines. The option holds a dictionary of key-values, where the keys
@@ -1537,12 +1539,12 @@ your trigger with `re!` to signify it's a regex trigger. For instance,
 Default: `[see next line]`
 
 ```viml
-let g:ycm_semantic_triggers =  {
+let g:icm_semantic_triggers =  {
   \   'swift' : ['.', '[_a-zA-Z'],
   \ }
 ```
 
-### The `g:ycm_cache_omnifunc` option
+### The `g:icm_cache_omnifunc` option
 
 Some omnicompletion engines do not work well with the iCM cache—in particular,
 they might not produce all possible results for a given prefix. By unsetting
@@ -1553,10 +1555,10 @@ stuttering and lagginess if the omnifunc is slow.
 Default: `1`
 
 ```viml
-let g:ycm_cache_omnifunc = 1
+let g:icm_cache_omnifunc = 1
 ```
 
-### The `g:ycm_use_ultisnips_completer` option
+### The `g:icm_use_ultisnips_completer` option
 
 By default, iCM will query the UltiSnips plugin for possible completions of
 snippet triggers. This option can turn that behavior off.
@@ -1564,10 +1566,10 @@ snippet triggers. This option can turn that behavior off.
 Default: `1`
 
 ```viml
-let g:ycm_use_ultisnips_completer = 1
+let g:icm_use_ultisnips_completer = 1
 ```
 
-### The `g:ycm_goto_buffer_command` option
+### The `g:icm_goto_buffer_command` option
 
 Defines where `GoTo*` commands result should be opened.
 Can take one of the following values:
@@ -1580,10 +1582,10 @@ then result will be opened in horizontal split.
 Default: `'same-buffer'`
 
 ```viml
-let g:ycm_goto_buffer_command = 'same-buffer'
+let g:icm_goto_buffer_command = 'same-buffer'
 ```
 
-### The `g:ycm_disable_for_files_larger_than_kb` option
+### The `g:icm_disable_for_files_larger_than_kb` option
 
 Defines the max size (in Kb) for a file to be considered for completion. If this
 option is set to 0 then no check is made on the size of the file you're opening.
@@ -1591,10 +1593,10 @@ option is set to 0 then no check is made on the size of the file you're opening.
 Default: 1000
 
 ```viml
-let g:ycm_disable_for_files_larger_than_kb = 1000
+let g:icm_disable_for_files_larger_than_kb = 1000
 ```
 
-### The `g:ycm_python_binary_path` option
+### The `g:icm_python_binary_path` option
 
 *TODO:jerry Remove ( I don't think we need this )*
 
@@ -1606,7 +1608,7 @@ Python 2.6, 2.7 or 3.3+).
 Default: `''`
 
 ```viml
-let g:ycm_python_binary_path = 'python'
+let g:icm_python_binary_path = 'python'
 ```
 
 **NOTE:** the settings above will make iCM use the first `python` executable
@@ -1626,7 +1628,7 @@ supported in the first place; it only ever worked by accident and was never a
 part of the extra conf API.
 
 But fear not, you should be able to tweak your extra conf files to continue
-working by using the `g:ycm_extra_conf_vim_data` option. See the docs on that
+working by using the `g:icm_extra_conf_vim_data` option. See the docs on that
 option for details.
 
 ### I get `ImportError` exceptions that mention `PyInit_ycm_core` or `initycm_core`
@@ -1646,7 +1648,7 @@ If building for Python 3 but loading in Python 2:
 ImportError: dynamic module does not define init function (initycm_core)
 ```
 
-Setting the `g:ycm_server_python_interpreter` option to force the use of a
+Setting the `g:icm_server_python_interpreter` option to force the use of a
 specific Python interpreter for `ycmd` is usually the easiest way to solve the
 problem. Common values for that option are `/usr/bin/python` and
 `/usr/bin/python3`.
@@ -1668,12 +1670,12 @@ completion so that you can use the information about the parameters and their
 types to write the function call.
 
 If you would like this window to auto-close after you select a completion
-string, set the `g:ycm_autoclose_preview_window_after_completion` option to `1`
-in your `vimrc` file. Similarly, the `g:ycm_autoclose_preview_window_after_insertion`
+string, set the `g:icm_autoclose_preview_window_after_completion` option to `1`
+in your `vimrc` file. Similarly, the `g:icm_autoclose_preview_window_after_insertion`
 option can be set to close the `preview` window after leaving insert mode.
 
 If you don't want this window to ever show up, add `set completeopt-=preview` to
-your `vimrc`. Also make sure that the `g:ycm_add_preview_to_completeopt` option
+your `vimrc`. Also make sure that the `g:icm_add_preview_to_completeopt` option
 is set to `0`.
 
 ### It appears that iCM is not working
@@ -1834,7 +1836,7 @@ dynamic modules.
 
 ### iCM does not read identifiers from my tags files
 
-First, put `let g:ycm_collect_identifiers_from_tags_files = 1` in your vimrc.
+First, put `let g:icm_collect_identifiers_from_tags_files = 1` in your vimrc.
 
 Make sure you are using [Exuberant Ctags][exuberant-ctags] to produce your tags
 files since the only supported tag format is the [Exuberant Ctags
@@ -1967,7 +1969,7 @@ EOF
 ### I hear that iCM only supports Python 2, is that true?
 
 **No.** Both the Vim client and the [ycmd server][ycmd] run on Python 2 or 3. If
-you work on a Python 3 project, you may need to set `g:ycm_python_binary_path`
+you work on a Python 3 project, you may need to set `g:icm_python_binary_path`
 to the Python interpreter you use for your project to get completions for that
 version of Python.
 
@@ -1982,10 +1984,10 @@ If you are running vim on Windows with Python 2.7.11, this is likely caused by a
 
 This means that the Python used to run [JediHTTP][] is not the Python of the
 virtual environment you're in. To resolve this you either set
-`g:ycm_python_binary_path` to the absolute path of the Python binary in your
+`g:icm_python_binary_path` to the absolute path of the Python binary in your
 virtual environment or since virtual environment will put that Python
 executable first in your PATH when the virtual environment is active then if
-you set `g:ycm_python_binary_path` to just `'python'` it will be found as the
+you set `g:icm_python_binary_path` to just `'python'` it will be found as the
 first Python and used to run [JediHTTP][].
 
 ### I want to defer loading of iCompleteMe until after Vim finishes booting
