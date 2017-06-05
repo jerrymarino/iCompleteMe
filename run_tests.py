@@ -7,7 +7,7 @@ import sys
 
 DIR_OF_THIS_SCRIPT = p.dirname( p.abspath( __file__ ) )
 DIR_OF_THIRD_PARTY = p.join( DIR_OF_THIS_SCRIPT, 'third_party' )
-DIR_OF_YCMD_THIRD_PARTY = p.join( DIR_OF_THIRD_PARTY, 'ycmd', 'third_party' )
+DIR_OF_YCMD_THIRD_PARTY = p.join( DIR_OF_THIRD_PARTY, 'icmd', 'third_party' )
 
 python_path = []
 for folder in os.listdir( DIR_OF_THIRD_PARTY ):
@@ -64,7 +64,7 @@ def BuildYcmdLibs( args ):
   if not args.skip_build:
     subprocess.check_call( [
       sys.executable,
-      p.join( DIR_OF_THIS_SCRIPT, 'third_party', 'ycmd', 'build.py' )
+      p.join( DIR_OF_THIS_SCRIPT, 'third_party', 'icmd', 'build.py' )
     ] )
 
 
@@ -76,7 +76,7 @@ def NoseTests( parsed_args, extra_nosetests_args ):
   if parsed_args.coverage:
     nosetests_args += [ '--with-coverage',
                         '--cover-erase',
-                        '--cover-package=ycm',
+                        '--cover-package=icm',
                         '--cover-html' ]
 
   if extra_nosetests_args:

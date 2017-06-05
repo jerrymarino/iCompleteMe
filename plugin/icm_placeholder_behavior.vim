@@ -175,7 +175,7 @@ endfunction
 " This forces '<Tab>' and '<Down>', which seems sensible
 " TODO:jerry consider how this will manifest in the user level
 " and a way to overide it.
-let g:ycm_key_list_select_completion = ['<Down>']
+let g:icm_key_list_select_completion = ['<Down>']
 
 function! DidTab()
     call s:DebugEcho("DidTab")
