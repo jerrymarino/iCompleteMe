@@ -93,7 +93,7 @@ using Vundle and the ycm_core library APIs have changed (happens
 rarely), iCM will notify you to recompile it. You should then rerun the install
 process.
 
-**NOTE:** If you want C-family completion, you MUST have the latest Xcode
+**NOTE:** If you want Swift completion, you MUST have the latest Xcode
 installed along with the latest Command Line Tools (they are installed
 automatically when you run `clang` for the first time, or manually by running
 `xcode-select --install`)
@@ -110,7 +110,7 @@ Simply run:
     ./install.py
 
 That's it. You're done. Refer to the _User Guide_ section on how to use iCM.
-Don't forget that if you want the C-family semantic completion engine to work,
+Don't forget that if you want the Swift semantic completion engine to work,
 you will need to provide the compilation flags for your project to iCM. It's all
 in the User Guide.
 
@@ -157,7 +157,7 @@ Make sure you have Python headers installed:
 
 
 That's it. You're done. Refer to the _User Guide_ section on how to use iCM.
-Don't forget that if you want the C-family semantic completion engine to work,
+Don't forget that if you want the Swift semantic completion engine to work,
 you will need to provide the compilation flags for your project to iCM. It's all
 in the User Guide.
 
@@ -199,7 +199,7 @@ Make sure you have Python headers installed:
 
 
 That's it. You're done. Refer to the _User Guide_ section on how to use iCM.
-Don't forget that if you want the C-family semantic completion engine to work,
+Don't forget that if you want the Swift semantic completion engine to work,
 you will need to provide the compilation flags for your project to iCM. It's all
 in the User Guide.
 
@@ -244,10 +244,10 @@ variable.
 - [Visual Studio][visual-studio-download]. Download the community edition.
 During setup, select _Desktop development with C++_ in _Workloads_.
 
-Compiling iCM **with** semantic support for C-family languages:
+Compiling iCM **with** semantic support for Swift language:
 
     cd %USERPROFILE%/vimfiles/bundle/iCompleteMe
-    install.py --clang-completer
+    install.py
 
 You can specify the Microsoft Visual C++ (MSVC) version using the `--msvc`
 option. iCM officially supports MSVC 12 (Visual Studio 2013), 14 (2015), and 15
@@ -376,7 +376,7 @@ process.
         cd ycm_build
 
     Now we need to generate the makefiles. If you DON'T care about semantic
-    support for C-family languages, run the following command in the `ycm_build`
+    support for Swift language, run the following command in the `ycm_build`
     directory:
 
         cmake -G "<generator>" . ~/.vim/bundle/iCompleteMe/third_party/ycmd/cpp
@@ -518,8 +518,7 @@ For Xcode *Project* users, [XcodeCompilationDatabase
 
 ### Diagnostic Display
 
-iCM will display diagnostic notifications for C-family and C# languages if you
-compiled iCM with Clang and Omnisharp support, respectively. Diagnostics will
+iCM will display diagnostic notifications for if you. Diagnostics will
 also be displayed for TypeScript. Since iCM continuously recompiles your file as
 you type, you'll get notified of errors and warnings in your file as fast as
 possible.
@@ -623,7 +622,7 @@ more information.
 
 **NOTE:** The absense of ` (FixIt available)` does not strictly imply a fix-it
 is not available as not all completers are able to provide this indication. For
-example, the c-sharp completer provides many fix-its but does not add this
+example, the swift completer provides many fix-its but does not add this
 additional indication.
 
 The `g:icm_open_loclist_on_ycm_diags` option can be used to prevent the location
@@ -681,9 +680,9 @@ python binary to use to restart the Python semantic engine.
 :IcmCompleter RestartServer /usr/bin/python3.4
 ```
 
-Supported in filetypes: `cs, go, javascript, python, rust, typescript`
-
 #### The `ClearCompilationFlagCache` subcommand
+
+TODO:Jerry ( Not Implemented )
 
 iCM caches the flags it gets from the `FlagsForFile` function in your
 `ycm_extra_conf.py` file if you return them with the `do_cache` parameter set to
@@ -692,16 +691,6 @@ of course).
 
 This command clears that cache entirely. iCM will then re-query your
 `FlagsForFile` function as needed in the future.
-
-Supported in filetypes: `c, cpp, objc, objcpp`
-
-#### The `ReloadSolution` subcommand
-
-Instruct the Omnisharp server to clear its cache and reload all files from disk.
-This is useful when files are added, removed, or renamed in the solution, files
-are changed outside of Vim, or whenever Omnisharp cache is out-of-sync.
-
-Supported in filetypes: `cs`
 
 Functions
 --------
@@ -930,15 +919,10 @@ Specific parts of the diagnostics UI (like the gutter signs, text highlighting,
 diagnostic echo and auto location list population) can be individually turned on
 or off. See the other options below for details.
 
-Note that iCM's diagnostics UI is only supported for C-family languages.
-
 When set, this option also makes iCM remove all Syntastic checkers set for the
-`c`, `cpp`, `objc` and `objcpp` filetypes since this would conflict with iCM's
-own diagnostics UI.
+`swift` filetype since this would conflict with iCM's own diagnostics UI.
 
-If you're using iCM's identifier completer in C-family languages but cannot use
-the clang-based semantic completer for those languages _and_ want to use the GCC
-Syntastic checkers, unset this option.
+Unset to use with Syntastic diagnostic checkers.
 
 Default: `1`
 
@@ -1104,12 +1088,6 @@ let g:icm_complete_in_comments = 0
 When this option is set to `1`, iCM will show the completion menu even when
 typing inside strings.
 
-Note that this is turned on by default so that you can use the filename
-completion inside strings. This is very useful for instance in C-family files
-where typing `#include "` will trigger the start of filename completion. If you
-turn off this option, you will turn off filename completion in such situations
-as well.
-
 Default: `1`
 
 ```viml
@@ -1169,41 +1147,6 @@ Default: `0`
 let g:icm_seed_identifiers_with_syntax = 0
 ```
 
-### The `g:icm_extra_conf_vim_data` option
-
-If you're using semantic completion for C-family files, this option might come
-handy; it's a way of sending data from Vim to your `FlagsForFile` function in
-your `.ycm_extra_conf.py` file.
-
-This option is supposed to be a list of VimScript expression strings that are
-evaluated for every request to the [ycmd server][ycmd] and then passed to your
-`FlagsForFile` function as a `client_data` keyword argument.
-
-For instance, if you set this option to `['v:version']`, your `FlagsForFile`
-function will be called like this:
-
-```python
-# The '704' value is of course contingent on Vim 7.4; in 7.3 it would be '703'
-FlagsForFile(filename, client_data = {'v:version': 704})
-```
-
-So the `client_data` parameter is a dictionary mapping Vim expression strings to
-their values at the time of the request.
-
-The correct way to define parameters for your `FlagsForFile` function:
-
-```python
-def FlagsForFile(filename, **kwargs):
-```
-
-You can then get to `client_data` with `kwargs['client_data']`.
-
-Default: `[]`
-
-```viml
-let g:icm_extra_conf_vim_data = []
-```
-
 ### The `g:icm_server_python_interpreter` option
 
 iCM will by default search for an appropriate Python interpreter on your system.
@@ -1250,59 +1193,6 @@ Default: `info`
 
 ```viml
 let g:icm_log_level = 'info'
-```
-
-### The `g:icm_auto_start_csharp_server` option
-
-When set to `1`, the OmniSharp server will be automatically started (once per
-Vim session) when you open a C# file.
-
-Default: `1`
-
-```viml
-let g:icm_auto_start_csharp_server = 1
-```
-
-### The `g:icm_auto_stop_csharp_server` option
-
-When set to `1`, the OmniSharp server will be automatically stopped upon
-closing Vim.
-
-Default: `1`
-
-```viml
-let g:icm_auto_stop_csharp_server = 1
-```
-
-### The `g:icm_csharp_server_port` option
-
-When g:icm_auto_start_csharp_server is set to `1`, specifies the port for
-the OmniSharp server to listen on. When set to `0` uses an unused port provided
-by the OS.
-
-Default: `0`
-
-```viml
-let g:icm_csharp_server_port = 0
-```
-
-### The `g:icm_csharp_insert_namespace_expr` option
-
-By default, when iCM inserts a namespace, it will insert the `using` statement
-under the nearest `using` statement. You may prefer that the `using` statement is
-inserted somewhere, for example, to preserve sorting. If so, you can set this
-option to override this behavior.
-
-When this option is set, instead of inserting the `using` statement itself, iCM
-will set the global variable `g:icm_namespace_to_insert` to the namespace to
-insert, and then evaluate this option's value as an expression. The option's
-expression is responsible for inserting the namespace - the default insertion
-will not occur.
-
-Default: ''
-
-```viml
-let g:icm_csharp_insert_namespace_expr = ''
 ```
 
 ### The `g:icm_add_preview_to_completeopt` option
@@ -1355,8 +1245,7 @@ let g:icm_autoclose_preview_window_after_insertion = 0
 ### The `g:icm_max_diagnostics_to_display` option
 
 This option controls the maximum number of diagnostics shown to the user when
-errors or warnings are detected in the file. This option is only relevant if you
-are using the C-family semantic completion engine.
+errors or warnings are detected in the file.
 
 Default: `30`
 
@@ -1686,18 +1575,19 @@ something and iCM is complaining about it.
 
 Also, you may want to run the `:IcmDebugInfo` command; it will make iCM spew out
 various debugging information, including the iCM and [ycmd][] logfile paths and
-the compile flags for the current file if the file is a C-family language file
-and you have compiled in Clang support. Logfiles can be opened in the editor
+the compile flags for the current file if the file is a Swift file
+and you have compiled in Swift support. Logfiles can be opened in the editor
 using [the `:IcmToggleLogs` command](#the-ycmtogglelogs-command).
 
 ### Sometimes it takes much longer to get semantic completions than normal
 
-This means that libclang (which iCM uses for C-family semantic completion)
-failed to pre-compile your file's preamble. In other words, there was an error
-compiling some of the source code you pulled in through your header files. I
-suggest calling the `:IcmDiags` command to see what they were.
+This means that the Swift language facilities (which iCM uses for Swift
+semantic completion) failed to pre-compile your file's preamble. In other
+words, there was an error compiling some of the source code you pulled in
+through your header files. I suggest calling the `:IcmDiags` command to see
+what they were.
 
-Bottom line, if libclang can't pre-compile your file's preamble because there
+Bottom line, if Swift can't pre-compile your file's because there
 were errors in it, you're going to get slow completions because there's no AST
 cache.
 
