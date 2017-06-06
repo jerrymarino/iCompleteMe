@@ -28,6 +28,7 @@ MockVimModule()
 
 import os
 import sys
+import platform
 from hamcrest import ( assert_that, contains, empty, is_in, is_not, has_length,
                        matches_regexp )
 from mock import call, MagicMock, patch
@@ -35,6 +36,10 @@ from mock import call, MagicMock, patch
 from icm.tests import StopServer, test_utils, YouCompleteMeInstance
 from icm.client.base_request import _LoadExtraConfFile
 from ycmd.responses import ServerError
+
+
+def OnMac():
+  return platform.system() == 'Darwin'
 
 
 @YouCompleteMeInstance()
@@ -238,6 +243,9 @@ def YouCompleteMe_ToggleLogs_WithParameters_test( ycm,
 @YouCompleteMeInstance()
 @patch( 'icm.vimsupport.PostVimMessage' )
 def YouCompleteMe_ToggleLogs_WithoutParameters_test( ycm, post_vim_message ):
+  if not OnMac():
+    return
+
   # We test on a Python buffer because the Python completer has subserver
   # logfiles.
   python_buffer = VimBuffer( 'buffer.py', filetype = 'swift' )
