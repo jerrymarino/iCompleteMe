@@ -543,8 +543,8 @@ update Vim's GUI after it has finished running.  You _have to_ press a key. This
 will make iCM check for any pending diagnostics updates.
 
 You _can_ force a full, blocking compilation cycle with the
-`:YcmForceCompileAndDiagnostics` command (you may want to map that command to a
-key; try putting `nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>` in your
+`:IcmForceCompileAndDiagnostics` command (you may want to map that command to a
+key; try putting `nnoremap <F5> :IcmForceCompileAndDiagnostics<CR>` in your
 vimrc). Calling this command will force iCM to immediately recompile your file
 and display any new diagnostics it encounters. Do note that recompilation with
 this command may take a while and during this time the Vim GUI _will_ be
@@ -569,41 +569,41 @@ yours truly.
 You can change the styling for the highlighting groups iCM uses. For the signs
 in the Vim gutter, the relevant groups are:
 
-- `YcmErrorSign`, which falls back to group `SyntasticErrorSign` and then
+- `IcmErrorSign`, which falls back to group `SyntasticErrorSign` and then
   `error` if they exist
-- `YcmWarningSign`, which falls back to group `SyntasticWarningSign` and then
+- `IcmWarningSign`, which falls back to group `SyntasticWarningSign` and then
   `todo` if they exist
 
 You can also style the line that has the warning/error with these groups:
 
-- `YcmErrorLine`, which falls back to group `SyntasticErrorLine` if it exists
-- `YcmWarningLine`, which falls back to group `SyntasticWarningLine` if it
+- `IcmErrorLine`, which falls back to group `SyntasticErrorLine` if it exists
+- `IcmWarningLine`, which falls back to group `SyntasticWarningLine` if it
   exists
 
 Note that the line highlighting groups only work when gutter signs are turned
 on.
 
 The syntax groups used to highlight regions of text with errors/warnings:
-- `YcmErrorSection`, which falls back to group `SyntasticError` if it exists and
+- `IcmErrorSection`, which falls back to group `SyntasticError` if it exists and
   then `SpellBad`
-- `YcmWarningSection`, which falls back to group `SyntasticWarning` if it exists
+- `IcmWarningSection`, which falls back to group `SyntasticWarning` if it exists
   and then `SpellCap`
 
 Here's how you'd change the style for a group:
 
 ```viml
-highlight YcmErrorLine guibg=#3f0000
+highlight IcmErrorLine guibg=#3f0000
 ```
 
 Commands
 --------
 
-### The `:YcmRestartServer` command
+### The `:IcmRestartServer` command
 
 If the [ycmd completion server][ycmd] suddenly stops for some reason, you can
 restart it with this command.
 
-### The `:YcmForceCompileAndDiagnostics` command
+### The `:IcmForceCompileAndDiagnostics` command
 
 Calling this command will force iCM to immediately recompile your file
 and display any new diagnostics it encounters. Do note that recompilation with
@@ -611,13 +611,13 @@ this command may take a while and during this time the Vim GUI _will_ be
 blocked.
 
 You may want to map this command to a key; try putting `nnoremap <F5>
-:YcmForceCompileAndDiagnostics<CR>` in your vimrc.
+:IcmForceCompileAndDiagnostics<CR>` in your vimrc.
 
-### The `:YcmDiags` command
+### The `:IcmDiags` command
 
 Calling this command will fill Vim's `locationlist` with errors or warnings if
 any were detected in your file and then open it. If a given error or warning can
-be fixed by a call to `:YcmCompleter FixIt`, then ` (FixIt available)` is
+be fixed by a call to `:IcmCompleter FixIt`, then ` (FixIt available)` is
 appended to the error or warning text. See the `FixIt` completer subcommand for
 more information.
 
@@ -630,24 +630,24 @@ The `g:icm_open_loclist_on_ycm_diags` option can be used to prevent the location
 list from opening, but still have it filled with new diagnostic data. See the
 _Options_ section for details.
 
-### The `:YcmShowDetailedDiagnostic` command
+### The `:IcmShowDetailedDiagnostic` command
 
 This command shows the full diagnostic text when the user's cursor is on the
 line with the diagnostic.
 
-### The `:YcmDebugInfo` command
+### The `:IcmDebugInfo` command
 
 This will print out various debug information for the current file. Useful to
 see what compile commands will be used for the file if you're using the semantic
 completion engine.
 
-### The `:YcmToggleLogs` command
+### The `:IcmToggleLogs` command
 
 This command opens in separate windows the logfiles given as arguments or closes
 them if they are already open in the editor. When no argument is given, list the
 available logfiles. Only for debugging purpose.
 
-### The `:YcmCompleter` command
+### The `:IcmCompleter` command
 
 This command gives access to a number of additional [IDE-like
 features](#quick-feature-summary).
@@ -656,11 +656,11 @@ Technically the command invokes completer-specific commands.  If the first
 argument is of the form `ft=...` the completer for that file type will be used
 (for example `ft=cpp`), else the native completer of the current buffer will be
 used.
-Call `YcmCompleter` without further arguments for a list of the
+Call `IcmCompleter` without further arguments for a list of the
 commands you can call for the current completer.
 
 See the [file type feature summary](#quick-feature-summary) for an overview of
-the features available for each file type. See the _YcmCompleter subcommands_
+the features available for each file type. See the _IcmCompleter subcommands_
 section for more information on the available subcommands and their usage.
 
 ### Miscellaneous Commands
@@ -678,7 +678,7 @@ An additional optional argument may be supplied for Python, specifying the
 python binary to use to restart the Python semantic engine.
 
 ```viml
-:YcmCompleter RestartServer /usr/bin/python3.4
+:IcmCompleter RestartServer /usr/bin/python3.4
 ```
 
 Supported in filetypes: `cs, go, javascript, python, rust, typescript`
@@ -706,44 +706,44 @@ Supported in filetypes: `cs`
 Functions
 --------
 
-### The `youcompleteme#GetErrorCount` function
+### The `icompleteme#GetErrorCount` function
 
 Get the number of iCM Diagnostic errors. If no errors are present, this function
 returns 0.
 
 For example:
 ```viml
-  call youcompleteme#GetErrorCount()
+  call icompleteme#GetErrorCount()
 ```
 
-Both this function and `youcompleteme#GetWarningCount` can be useful when
+Both this function and `icompleteme#GetWarningCount` can be useful when
 integrating iCM with other Vim plugins. For example, a [lightline][] user could
 add a diagnostics section to their statusline which would display the number of
 errors and warnings.
 
-### The `youcompleteme#GetWarningCount` function
+### The `icompleteme#GetWarningCount` function
 
 Get the number of iCM Diagnostic warnings. If no warnings are present, this
 function returns 0.
 
 For example:
 ```viml
-  call youcompleteme#GetWarningCount()
+  call icompleteme#GetWarningCount()
 ```
 
 Autocommands
 ------------
 
-### The `YcmLocationOpened` autocommand
+### The `IcmLocationOpened` autocommand
 
 This `User` autocommand is fired when iCM opens the location list window in
-response to the `YcmDiags` command. By default, the location list window is
+response to the `IcmDiags` command. By default, the location list window is
 opened to full width at the bottom of the screen and its height is set to fit
-all entries. This behavior can be overridden by using the `YcmLocationOpened`
+all entries. This behavior can be overridden by using the `IcmLocationOpened`
 autocommand which is triggered while the cursor is in the location list window.
 For instance:
 ```viml
-function! s:CustomizeYcmLocationWindow()
+function! s:CustomizeIcmLocationWindow()
   " Move the window to the top of the screen.
   wincmd K
   " Set the window height to 5.
@@ -752,26 +752,26 @@ function! s:CustomizeYcmLocationWindow()
   wincmd p
 endfunction
 
-autocmd User YcmLocationOpened call s:CustomizeYcmLocationWindow()
+autocmd User IcmLocationOpened call s:CustomizeIcmLocationWindow()
 ```
 
-### The `YcmQuickFixOpened` autocommand
+### The `IcmQuickFixOpened` autocommand
 
 This `User` autocommand is fired when iCM opens the quickfix window in response
 to the `GoTo*` and `RefactorRename` subcommands. By default, the quickfix window
 is opened to full width at the bottom of the screen and its height is set to fit
-all entries. This behavior can be overridden by using the `YcmQuickFixOpened`
+all entries. This behavior can be overridden by using the `IcmQuickFixOpened`
 autocommand which is triggered while the cursor is in the quickfix window. For
 instance:
 ```viml
-function! s:CustomizeYcmQuickFixWindow()
+function! s:CustomizeIcmQuickFixWindow()
   " Move the window to the top of the screen.
   wincmd K
   " Set the window height to 5.
   5wincmd _
 endfunction
 
-autocmd User YcmQuickFixOpened call s:CustomizeYcmQuickFixWindow()
+autocmd User IcmQuickFixOpened call s:CustomizeIcmQuickFixWindow()
 ```
 
 Options
@@ -979,8 +979,8 @@ let g:icm_warning_symbol = '>>'
 ### The `g:icm_enable_diagnostic_signs` option
 
 When this option is set, iCM will put icons in Vim's gutter on lines that have a
-diagnostic set. Turning this off will also turn off the `YcmErrorLine` and
-`YcmWarningLine` highlighting.
+diagnostic set. Turning this off will also turn off the `IcmErrorLine` and
+`IcmWarningLine` highlighting.
 
 This option is part of the Syntastic compatibility layer; if the option is not
 set, iCM will fall back to the value of the `g:syntastic_enable_signs` option
@@ -1077,7 +1077,7 @@ let g:icm_always_populate_location_list = 0
 
 ### The `g:icm_open_loclist_on_ycm_diags` option
 
-When this option is set, `:YcmDiags` will automatically open the location list
+When this option is set, `:IcmDiags` will automatically open the location list
 after forcing a compilation and filling the list with diagnostic data.
 
 See `:help location-list` in Vim to learn more about the location list.
@@ -1226,7 +1226,7 @@ When this option is set to `1`, iCM and the [ycmd completion server][ycmd] will
 keep the logfiles around after shutting down (they are deleted on shutdown by
 default).
 
-To see where the logfiles are, call `:YcmDebugInfo`.
+To see where the logfiles are, call `:IcmDebugInfo`.
 
 Default: `0`
 
@@ -1420,7 +1420,7 @@ let g:icm_key_invoke_completion = '<C-Space>'
 
 This option controls the key mapping used to show the full diagnostic text when
 the user's cursor is on the line with the diagnostic. It basically calls
-`:YcmShowDetailedDiagnostic`.
+`:IcmShowDetailedDiagnostic`.
 
 Setting this option to an empty string will make sure no mapping is created.
 
@@ -1684,18 +1684,18 @@ In Vim, run `:messages` and carefully read the output. iCM will echo messages to
 the message log if it encounters problems. It's likely you misconfigured
 something and iCM is complaining about it.
 
-Also, you may want to run the `:YcmDebugInfo` command; it will make iCM spew out
+Also, you may want to run the `:IcmDebugInfo` command; it will make iCM spew out
 various debugging information, including the iCM and [ycmd][] logfile paths and
 the compile flags for the current file if the file is a C-family language file
 and you have compiled in Clang support. Logfiles can be opened in the editor
-using [the `:YcmToggleLogs` command](#the-ycmtogglelogs-command).
+using [the `:IcmToggleLogs` command](#the-ycmtogglelogs-command).
 
 ### Sometimes it takes much longer to get semantic completions than normal
 
 This means that libclang (which iCM uses for C-family semantic completion)
 failed to pre-compile your file's preamble. In other words, there was an error
 compiling some of the source code you pulled in through your header files. I
-suggest calling the `:YcmDiags` command to see what they were.
+suggest calling the `:IcmDiags` command to see what they were.
 
 Bottom line, if libclang can't pre-compile your file's preamble because there
 were errors in it, you're going to get slow completions because there's no AST
