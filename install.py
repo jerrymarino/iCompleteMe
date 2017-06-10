@@ -30,7 +30,7 @@ def CheckCall( args, **kwargs ):
 
 
 def Main():
-  build_file = p.join( DIR_OF_THIS_SCRIPT, 'third_party', 'ycmd', 'build.py' )
+  build_file = p.join( DIR_OF_THIS_SCRIPT, 'third_party', 'icmd', 'build.py' )
 
   if not p.isfile( build_file ):
     sys.exit(
