@@ -169,13 +169,21 @@ function! s:InsideUnclosedStringLiteralParameter()
     return closingQuote == ""
 endfunction
 
-" Override the tab callback.
+" Override the tab callback to track behaviorState
+
+" TODO: consider how this will manifest in the user level
+" and a way to overide it. ( This effetively hardcodes
+" [i,y]cm_key_list_select_completion to contain tab )
+
 " When the user tabs, we check if completion has ended
 " and if so, then jump to the next
 " This forces '<Tab>' and '<Down>', which seems sensible
-" TODO:jerry consider how this will manifest in the user level
-" and a way to overide it.
 let g:icm_key_list_select_completion = ['<Down>']
+
+" The Tab ovveride does not impact Ycm since the behavior
+" is exactly the same ( returns C-n ) if pumvisible.
+" The only difference here is we are capturing the state
+let g:ycm_key_list_select_completion = ['<Down>']
 
 function! DidTab()
     call s:DebugEcho("DidTab")
@@ -183,9 +191,9 @@ function! DidTab()
         let s:behaviorstate = 4
         " Make the tab key work like how it used to in iCM
         " when the pum is visible, we'll go to the next value.
-        " FIXME: This needs some smarts before merging.
         " If the user is typing a string with a tab in it, it will be
         " problematic.
+        " See the other workaround for typing tabs with completion
         return "\<C-n>"
     else
         if CheckPlaceholderExistence()
