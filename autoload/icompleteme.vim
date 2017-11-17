@@ -456,7 +456,6 @@ function! s:DisableYcmIfNeeded()
   if s:HasYcm()
     call youcompleteme#DisableCursorMovedAutocommands()
     call icompleteme#EnableCursorMovedAutocommands()
-	return
   endif
 endfunction
 
@@ -464,7 +463,6 @@ function! s:EnableYcmIfNeeded()
   if s:HasYcm()
     call youcompleteme#EnableCursorMovedAutocommands()
     call icompleteme#DisableCursorMovedAutocommands()
-	return
   endif
 endfunction
 
