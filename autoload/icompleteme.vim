@@ -150,6 +150,15 @@ import sys
 import traceback
 import vim
 
+# Check if YCM exists
+def HasYcm():
+  try:
+    ycm_state
+  except NameError:
+    return False
+  else:
+    return True
+
 # Add python sources folder to the system path.
 script_folder = vim.eval( 's:script_folder_path' )
 sys.path.insert( 0, os.path.join( script_folder, '..', 'python' ) )
@@ -339,7 +348,7 @@ function! s:AllowedToCompleteInBuffer( buffer )
   let buffer_filetype = getbufvar( a:buffer, '&filetype' )
 
   if buffer_filetype == 'swift'
-          return 1
+	return 1
   endif
   return 0
 
@@ -390,6 +399,9 @@ endfunction
 
 
 function! s:SetUpCompleteopt()
+  " Disable Ycm
+  call s:DisableYcmIfNeeded()
+
   " Some plugins (I'm looking at you, vim-notes) change completeopt by for
   " instance adding 'longest'. This breaks YCM. So we force our settings.
   " There's no two ways about this: if you want to use YCM then you have to
@@ -422,12 +434,46 @@ function! s:OnCompleteDone()
   exec s:python_command "icm_state.OnCompleteDone()"
 endfunction
 
+let s:checked_ycm_state = 0
+let s:cached_ycm_state = 0
+
+function! s:HasYcm()
+  if s:checked_ycm_state
+    return s:cached_ycm_state
+  endif
+  echom s:Pyeval( 'HasYcm() == True' )
+endfunction
+
+function! s:SetHasYcmIfNeeded()
+  if s:checked_ycm_state
+    return
+  endif
+  let s:checked_ycm_state = 1
+  let s:cached_ycm_state = s:Pyeval( 'HasYcm() == True' )
+endfunction
+
+function! s:DisableYcmIfNeeded()
+  if s:HasYcm()
+    call youcompleteme#DisableCursorMovedAutocommands()
+	return
+  endif
+endfunction
+
+function! s:EnableYcmIfNeeded()
+  if s:HasYcm()
+    call youcompleteme#EnableCursorMovedAutocommands()
+	return
+  endif
+endfunction
 
 function! s:OnFileTypeSet()
+  call s:SetHasYcmIfNeeded()
   if !s:AllowedToCompleteInCurrentBuffer()
+    call s:EnableYcmIfNeeded()
     return
   endif
 
+  call s:DisableYcmIfNeeded()
   call s:SetUpCompleteopt()
   call s:SetCompleteFunc()
   call s:SetOmnicompleteFunc()
@@ -540,7 +586,6 @@ function! s:OnCursorMovedNormalMode()
   exec s:python_command "icm_state.OnCursorMoved()"
 endfunction
 
-
 function! s:OnTextChangedNormalMode()
   if !s:AllowedToCompleteInCurrentBuffer()
     return
@@ -548,7 +593,6 @@ function! s:OnTextChangedNormalMode()
 
   call s:OnFileReadyToParse()
 endfunction
-
 
 function! s:OnTextChangedInsertMode()
   if !s:AllowedToCompleteInCurrentBuffer()
