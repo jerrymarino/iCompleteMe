@@ -1,8 +1,8 @@
 iCompleteMe: Swift comprehension in Vim
 ===============================================
 
-[![Build Status](https://travis-ci.org/jerrymarino/iCompleteMe.svg?branch=master)](https://travis-ci.org/Valloric/iCompleteMe)
-[![Build status](https://ci.appveyor.com/api/projects/status/ag9uqwi8s6btwjd8/branch/master?svg=true)](https://ci.appveyor.com/project/Valloric/iCompleteMe)
+[![Build Status](https://travis-ci.org/jerrymarino/iCompleteMe.svg?branch=master)](https://travis-ci.org/jerrymarino/iCompleteMe)
+[![Build status](https://ci.appveyor.com/api/projects/status/ag9uqwi8s6btwjd8/branch/master?svg=true)](https://ci.appveyor.com/project/jerrymarino/iCompleteMe)
 
 - [Intro](#intro)
 - [Background](#background)
@@ -339,7 +339,7 @@ process.
 
 2.  **Install iCM** with [Vundle][] (or [Pathogen][], but Vundle is a better
     idea). With Vundle, this would mean adding a `Plugin
-    'Valloric/iCompleteMe'` line to your [vimrc][].
+    'jerrymarino/iCompleteMe'` line to your [vimrc][].
 
     If you don't install iCM with Vundle, make sure you have run
     `git submodule update --init --recursive` after checking out the iCM
@@ -1943,7 +1943,7 @@ This software is licensed under the [GPL v3 license][gpl].
 [subsequence]: https://en.wikipedia.org/wiki/Subsequence
 [vim-build]: https://github.com/jerrymarino/iCompleteMe/wiki/Building-Vim-from-source
 [tracker]: https://github.com/jerrymarino/iCompleteMe/issues?state=open
-[issue18]: https://github.com/Valloric/iCompleteMe/issues/18
+[issue18]: https://github.com/jerrymarino/iCompleteMe/issues/18
 [delimitMate]: https://github.com/Raimondi/delimitMate
 [completer-api]: https://github.com/Valloric/ycmd/blob/master/ycmd/completers/completer.py
 [eclim]: http://eclim.org/
@@ -1953,12 +1953,12 @@ This software is licensed under the [GPL v3 license][gpl].
 [vundle-bug]: https://github.com/VundleVim/Vundle.vim/issues/48
 [status-mes]: https://groups.google.com/forum/#!topic/vim_dev/WeBBjkXE8H8
 [python-re]: https://docs.python.org/2/library/re.html#regular-expression-syntax
-[Options]: https://github.com/Valloric/iCompleteMe#options
+[Options]: https://github.com/jerrymarino/iCompleteMe#options
 [vim-win-download]: https://bintray.com/micbou/generic/vim
 [python-win-download]: https://www.python.org/downloads/windows/
 [visual-studio-download]: https://www.visualstudio.com/downloads/
 [identify-R6034-cause]: http://stackoverflow.com/questions/14552348/runtime-error-r6034-in-embedded-python-application/34696022
-[ccoc]: https://github.com/Valloric/iCompleteMe/blob/master/CODE_OF_CONDUCT.md
+[ccoc]: https://github.com/jerrymarino/iCompleteMe/blob/master/CODE_OF_CONDUCT.md
 [vim_win-python2.7.11-bug]: https://github.com/vim/vim/issues/717
 [vim_win-python2.7.11-bug_workaround]: https://github.com/vim/vim-win32-installer/blob/a27bbdba9bb87fa0e44c8a00d33d46be936822dd/appveyor.bat#L86-L88
 [vim-nerdtree-tabs]: https://github.com/jistr/vim-nerdtree-tabs
