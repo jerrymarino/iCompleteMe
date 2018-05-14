@@ -64,7 +64,7 @@ The name [iCompleteMe][] is a statement about developing a system that
 considers ideal behaviors for an *individual* language and a tribute to
 [Valloric][]'s and the [YCM][]'s teams legacy.
 
-** It can exist in parallel to [YouCompleteMe][]: use [iCompleteMe][] the for
+** It can exist in parallel to [YouCompleteMe][]: use [iCompleteMe][] for the
 Swift files.**
 
 Installation
