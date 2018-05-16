@@ -1964,9 +1964,9 @@ This software is licensed under the [GPL v3 license][gpl].
 [vim-nerdtree-tabs]: https://github.com/jistr/vim-nerdtree-tabs
 
 [SwiftySwiftVim]: https://github.com/jerrymarino/swiftyswiftvim
-[YouCompleteMe]: https://github.com/Vallorc/YouCompleteMe
-[Valloric]: https://github.com/Vallorc
+[YouCompleteMe]: https://github.com/Valloric/YouCompleteMe
+[Valloric]: https://github.com/Valloric
 [iCompleteMe]: https://github.com/jerrymarino/iCompleteMe
-[YCM]: https://github.com/Vallorc/YouCompleteMe
+[YCM]: https://github.com/Valloric/YouCompleteMe
 [iCM]: https://github.com/jerrymarino/iCompleteMe
 
