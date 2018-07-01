@@ -26,6 +26,7 @@ iCompleteMe: Swift comprehension in Vim
 - [Options](#options)
 - [FAQ](#faq)
 - [Contributor Code of Conduct](#contributor-code-of-conduct)
+- [Swift Vim Examples](#examples)
 - [Contact](#contact)
 - [License](#license)
 
@@ -40,9 +41,6 @@ Intro
 * Swifty placeholder navigation: tab swiftly through long method completions
 
 ![SwiftySwiftVimPreview](https://cloud.githubusercontent.com/assets/1245820/26759463/4084bde8-48b3-11e7-869b-33ec00d70eef.gif)
-
-
-*Warning: it's in a bleeding edge, pre-alpha state.*
 
 
 Background
@@ -512,8 +510,11 @@ Database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) to import
 compiler settings. Setup the build system to generate one at the workspace
 root.
 
-For Xcode *Project* users, [XcodeCompilationDatabase
+For Xcode, [XcodeCompilationDatabase
 ](https://github.com/jerrymarino/XcodeCompilationDatabase) makes this easy.
+
+For Swift Package Manager and other build systems, [SwiftCompilationDatabase
+](https://github.com/jerrymarino/SwiftCompilationDatabase) makes this easy.
 
 
 ### Diagnostic Display
@@ -1908,6 +1909,16 @@ Contributor Code of Conduct
 Please note that this project is released with a [Contributor Code of
 Conduct][ccoc]. By participating in this project you agree to abide by its
 terms.
+
+
+Swift Vim Examples
+---------------------------
+
+It works with any project provided a correct `compile_commands.json` at the
+root of the directory.
+
+[SwiftVimTestHost](https://github.com/jerrymarino/SwiftVimTestHost) contains
+various Swift projects setup to test completion end to end.
 
 
 Contact
